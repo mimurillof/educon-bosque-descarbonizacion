@@ -335,6 +335,16 @@ class SearchIntentPipeline:
             {"keyword": "descarbonizacion", "volume": 260, "cpc": 9961},
             {"keyword": "taxonomía verde colombia", "volume": 180, "cpc": 5000}
         ]
+        # Palabras clave con intención de estudio (acordado en revisión MVP 2026-07-17:
+        # nadie busca "diplomado en descarbonización", pero sí términos afines a curso/diplomado)
+        self.intentional_keywords = [
+            {"keyword": "curso de descarbonización", "volume": 30},
+            {"keyword": "diplomado en sostenibilidad", "volume": 350},
+            {"keyword": "curso huella de carbono", "volume": 50},
+            {"keyword": "curso de sostenibilidad empresarial", "volume": 90},
+            {"keyword": "diplomado en gestión ambiental", "volume": 170},
+            {"keyword": "dónde estudiar descarbonización", "volume": 10}
+        ]
 
     def analyze(self):
         df = pd.DataFrame(self.keywords)
@@ -342,6 +352,7 @@ class SearchIntentPipeline:
         weighted_cpc = float((df['volume'] * df['cpc']).sum() / total_volume)
         return {
             'keywords': self.keywords,
+            'intentional_keywords': self.intentional_keywords,
             'total_volume': total_volume,
             'weighted_cpc_COP': weighted_cpc
         }
@@ -477,6 +488,7 @@ if __name__ == "__main__":
     print(" -> Estadísticas de Búsqueda Semántica en Colombia:")
     print(f"    * Volumen Mensual de Búsquedas Direccionables (V): {search_results['total_volume']} búsquedas/mes")
     print(f"    * Costo Por Clic (CPC) Promedio Ponderado: ${search_results['weighted_cpc_COP']:,.0f} COP")
+    print(f"    * Keywords con intención de estudio identificadas: {len(search_results['intentional_keywords'])} (vol. total: {sum(k['volume'] for k in search_results['intentional_keywords'])} búsquedas/mes)")
     print("   [Análisis]: El CPC promedio ponderado de $4,410 COP valida un interés comercial robusto B2B.\n")
 
     # -----------------------------------------------------------------
@@ -622,6 +634,7 @@ if __name__ == "__main__":
             "total_volume": int(search_results['total_volume']),
             "weighted_cpc_COP": float(search_results['weighted_cpc_COP'])
         },
+        "intentional_keywords": search_results['intentional_keywords'],
         "monte_carlo_baseline": {
             "prob_sub_inscripcion": float(simulation_results['prob_sub_inscripcion']),
             "prob_rentabilidad_positiva": float(simulation_results['prob_rentabilidad_positiva']),

@@ -62,6 +62,32 @@
                         "total_volume": 1010,
                         "weighted_cpc_COP": 5557.257425742574
             },
+            "intentional_keywords": [
+                        {
+                                    "keyword": "curso de descarbonización",
+                                    "volume": 30
+                        },
+                        {
+                                    "keyword": "diplomado en sostenibilidad",
+                                    "volume": 350
+                        },
+                        {
+                                    "keyword": "curso huella de carbono",
+                                    "volume": 50
+                        },
+                        {
+                                    "keyword": "curso de sostenibilidad empresarial",
+                                    "volume": 90
+                        },
+                        {
+                                    "keyword": "diplomado en gestión ambiental",
+                                    "volume": 170
+                        },
+                        {
+                                    "keyword": "dónde estudiar descarbonización",
+                                    "volume": 10
+                        }
+            ],
             "monte_carlo_baseline": {
                         "prob_sub_inscripcion": 0.9997,
                         "prob_rentabilidad_positiva": 0.0225,
@@ -509,7 +535,7 @@
             <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-2">Diplomado en Estrategias de Descarbonización</h1>
             <p class="text-teal-100 text-sm font-light flex items-center gap-2">
                 <span class="material-symbols-outlined text-secondary text-lg">science</span>
-                Framework Científico de Reducción de Incertidumbre Epistémica
+                Modelo de Simulación para la Toma de Decisiones Comerciales (MVP)
             </p>
         </div>
         <div class="text-right">
@@ -551,10 +577,10 @@
                 <span class="material-symbols-outlined text-[80px]">payments</span>
             </div>
             <div>
-                <span id="kpi-vpn-label" class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">VPN Esperado (Media)</span>
-                <h3 id="kpi-vpn-val" class="text-2xl font-extrabold text-primary mt-1">$78.95M COP</h3>
+                <span id="kpi-vpn-label" class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Pérdida Proyectada (Pauta Digital Pasiva)</span>
+                <h3 id="kpi-vpn-val" class="text-2xl font-extrabold text-rose-600 mt-1">-$15.09M COP</h3>
             </div>
-            <p id="kpi-vpn-interval" class="text-xs text-slate-600 mt-4">Intervalo de credibilidad 95%: <strong class="text-primary">$31.90M a $135.50M COP</strong>.</p>
+            <p id="kpi-vpn-interval" class="text-xs text-slate-600 mt-4">Rango de pérdida estimada (95% de confianza): entre <strong class="text-rose-600">$2.34M</strong> y <strong class="text-rose-600">$20.84M COP</strong>.</p>
         </div>
 
         <!-- KPI 3 -->
@@ -582,6 +608,24 @@
         </div>
     </section>
 
+    <!-- Explicación del Riesgo Financiero en Lenguaje de Negocio -->
+    <section class="visual-card border-l-4 border-rose-400 bg-rose-50/40">
+        <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-rose-500 text-3xl mt-1">trending_down</span>
+            <div class="space-y-2 flex-1">
+                <h2 class="text-sm font-bold text-rose-900 uppercase tracking-wide">¿Cómo leer la pérdida proyectada? (Explicación para el negocio)</h2>
+                <p class="text-xs text-slate-700 leading-relaxed">
+                    El simulador financiero evaluó <strong>10,000 escenarios comerciales posibles</strong> usando las tasas de conversión reales de la industria educativa corporativa (B2B). El resultado advierte que, si el diplomado se lanza confiando <strong>únicamente en publicidad digital pasiva</strong> (anuncios de Google que esperan a que el cliente llegue solo), la primera cohorte registraría una <strong>pérdida media de <span id="dyn-risk-mean" class="text-rose-700">$15.09M COP</span></strong>.
+                </p>
+                <ul class="list-disc pl-5 text-xs text-slate-700 space-y-1.5 leading-relaxed">
+                    <li><strong>No es una predicción fija:</strong> en el peor escenario razonable la pérdida llega a <strong class="text-rose-700"><span id="dyn-risk-min">$20.84M</span></strong> (casi ningún matriculado) y en el mejor escenario se reduce a <strong class="text-rose-700"><span id="dyn-risk-max">$2.34M</span></strong>. Si el programa logra 12 o más matriculados, pasa a números positivos.</li>
+                    <li><strong>¿Por qué se pierde dinero?</strong> Un clic no es una matrícula. En educación corporativa, menos del 1% de los clics termina en un estudiante inscrito. La pauta necesaria para atraer 1,500 clics cuesta ~<strong class="text-rose-700"><span id="dyn-risk-pauta">$8.34M</span></strong> y, sin el mínimo de 12 estudiantes, los ingresos no alcanzan a cubrir los costos fijos del programa ni esa inversión publicitaria.</li>
+                    <li><strong>Salida recomendada:</strong> complementar con captación comercial directa (contacto outbound B2B por LinkedIn y correo corporativo), que abre el embudo hacia los tomadores de decisión y reduce la dependencia del clic pagado.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <!-- Section 1: Investigación SEO -->
     <section class="bg-slate-900 text-white rounded-3xl p-8 relative overflow-hidden shadow-2xl my-6">
         <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
@@ -603,10 +647,27 @@
                     </div>
                 </div>
                 <div class="space-y-6">
+                    <!-- Tabla de palabras clave con intención de estudio -->
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+                        <h4 class="text-emerald-400 font-bold uppercase text-xs mb-3">Palabras clave con intención de estudio (sí tienen búsquedas)</h4>
+                        <div class="text-xs">
+                            <div class="flex justify-between items-center pb-2 border-b border-slate-700 text-slate-400 uppercase text-[10px] tracking-wider font-bold">
+                                <span>Palabra clave</span>
+                                <span>Búsquedas / mes</span>
+                            </div>
+                            <div id="seo-intent-tbody"></div>
+                            <div class="flex justify-between items-center pt-2 mt-1 border-t border-slate-700 text-emerald-400 font-bold">
+                                <span>Total intención de estudio</span>
+                                <span id="seo-intent-total">700</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mt-3">Volúmenes mensuales estimados para Colombia (Google Keyword Planner y fuentes complementarias de tráfico web). Nadie busca "diplomado en descarbonización", pero sí busca cursos y diplomados afines: ahí está el punto de entrada para posicionar el programa.</p>
+                    </div>
+                    <!-- Diagnóstico en lenguaje de negocio -->
                     <div class="bg-emerald-500/5 border-l-4 border-emerald-500 p-6 rounded-r-lg">
-                        <h4 class="text-emerald-400 font-bold uppercase text-xs mb-2">Diagnóstico de Latencia Cognitiva</h4>
+                        <h4 class="text-emerald-400 font-bold uppercase text-xs mb-2">Diagnóstico: Demanda Latente del Mercado</h4>
                         <p class="text-xs leading-relaxed text-slate-300">
-                            El volumen de búsqueda orgánica mensual en Google para la denominación del programa es nulo. Esto revela una <strong>Latencia Cognitiva</strong> en el mercado colombiano: las empresas y sus gerentes de sostenibilidad sufren una presión regulatoria inmediata por reportar emisiones de Alcance 1, 2 y 3 (bajo la Circular Externa 005 de 2022 de la SFC) y competir en licitaciones verdes, pero no buscan activamente un "Diplomado". Su dolor se centra en "cómo calcular huella de carbono" o "evitar auditorías por greenwashing", al asumir erróneamente que la descarbonización avanzada es un tema puramente de ingeniería ambiental especializada.
+                            Nadie busca en Google el nombre exacto del programa. Esto <strong>no significa que no exista mercado</strong>: las empresas sí tienen la necesidad (reportar emisiones de Alcance 1, 2 y 3 por la Circular Externa 005 de 2022 de la SFC y competir en licitaciones verdes), pero todavía no la traducen en la búsqueda de un "diplomado". Su interés se expresa en preguntas prácticas como "cómo calcular la huella de carbono" o "cómo evitar sanciones por greenwashing". <strong>Conclusión:</strong> el mercado hay que activarlo con captación directa (contenidos y contacto outbound), no esperar a que llegue solo por los buscadores.
                         </p>
                     </div>
                 </div>
@@ -632,8 +693,8 @@
                 <h3 class="text-sm font-bold text-emerald-900 mb-2">"Estrategias de Descarbonización y Competitividad Empresarial"</h3>
                 <p class="text-[10px] text-emerald-800 font-semibold mb-3">Audiencia: Gerentes de sostenibilidad, consultores de carbono, oficiales de cumplimiento y directores financieros.</p>
                 <div class="space-y-2 text-xs text-slate-700 leading-relaxed">
-                    <p><strong>Mecanismo Psicocognitivo:</strong> Elimina la percepción del diplomado como un "gasto regulatorio" pasivo y lo posiciona como un catalizador de eficiencia financiera y supervivencia corporativa (Competitividad). Alivia la fricción de adquisición B2B porque conecta el cumplimiento técnico con la obtención de créditos verdes y licitaciones estatales.</p>
-                    <p><strong>Desempeño de Tráfico:</strong> Se alinea de forma óptima con la propuesta ganadora del conjoint (con un 44.3% de preferencia), maximizando el CTR en campañas de LinkedIn y Meta Ads dirigidas a tomadores de decisión.</p>
+                    <p><strong>Efecto en la Percepción del Cliente:</strong> Elimina la percepción del diplomado como un "gasto regulatorio" pasivo y lo posiciona como una inversión en eficiencia financiera y supervivencia corporativa (Competitividad). Facilita la venta B2B porque conecta el cumplimiento técnico con la obtención de créditos verdes y licitaciones estatales.</p>
+                    <p><strong>Desempeño de Tráfico:</strong> Es la propuesta más preferida por el mercado en el análisis comparativo (44.3% de preferencia), maximizando la tasa de clics en campañas de LinkedIn y Meta Ads dirigidas a tomadores de decisión.</p>
                 </div>
             </div>
             <div class="visual-card bg-slate-50 border-slate-200">
@@ -644,7 +705,7 @@
                 <h3 class="text-sm font-bold text-slate-900 mb-2">"Diplomado en Medición de Huella de Carbono y Taxonomía Verde"</h3>
                 <p class="text-[10px] text-slate-700 font-semibold mb-3">Audiencia: Contadores de GEI, ingenieros de operaciones y directores de cumplimiento legal.</p>
                 <div class="space-y-2 text-xs text-slate-700 leading-relaxed">
-                    <p><strong>Mecanismo Psicocognitivo:</strong> Genera alta certidumbre técnica y rigor para profesionales contables. Sin embargo, introduce un sesgo de "tarea administrativa" y "reportes complejos", alejando a los gerentes generales y tomadores de decisiones estratégicas que temen la sobrecarga operativa o matemática.</p>
+                    <p><strong>Efecto en la Percepción del Cliente:</strong> Genera alta certidumbre técnica y rigor para profesionales contables. Sin embargo, se percibe como una "tarea administrativa" y de "reportes complejos", alejando a los gerentes generales y tomadores de decisiones estratégicas que temen la sobrecarga operativa o matemática.</p>
                     <p><strong>Desempeño de Tráfico:</strong> Funciona adecuadamente como descriptor temático de respaldo B2B para perfiles contables, pero sufre de mayor costo por clic al centrarse en un lenguaje excesivamente técnico y restrictivo.</p>
                 </div>
             </div>
@@ -772,9 +833,9 @@
         <div>
             <h2 class="text-xl font-bold text-primary flex items-center gap-2">
                 <span class="material-symbols-outlined text-secondary">grid_view</span>
-                Panel Científico de Evaluación (Métricas del Pipeline)
+                Panel de Evaluación del MVP (Métricas del Modelo)
             </h2>
-            <p class="text-xs text-slate-500">Visualizaciones derivadas de Minería de Demanda (UMAP/HDBSCAN), WTP Conjoint, Thompson Sampling y mSPRT.</p>
+            <p class="text-xs text-slate-500">Visualizaciones del análisis de demanda laboral, precios de mercado, intención de búsqueda en Google y simulación financiera de riesgo.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -788,7 +849,7 @@
                 <div class="text-[11px] text-slate-600 mt-2 bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1.5">
                     <p class="font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">translate</span> Traducción para Directivas (Evitar lectura errónea):</p>
                     <ul class="list-disc pl-4 space-y-1">
-                        <li><strong>¿Qué mide?</strong> La distancia semántica (del coseno) entre las ofertas del mercado laboral en Colombia y el plan del diplomado. Una distancia de 0.0 es copia idéntica; 1.0 es total desconexión.</li>
+                        <li><strong>¿Qué mide?</strong> Qué tan diferente es el contenido del diplomado frente a lo que las empresas piden en sus ofertas laborales en Colombia. Un valor de 0.0 significa copia idéntica; 1.0, desconexión total.</li>
                         <li><strong>Lectura Correcta:</strong> Una distancia moderada o alta (como <strong class="text-primary"><span id="dyn-void-vanguard"></span></strong> en <i>Tecnologías de Vanguardia</i> o <strong class="text-primary"><span id="dyn-void-iso"></span></strong> en <i>ISOs</i>) <strong>no es mala</strong>. Significa que hay una alta demanda empresarial de competencias que la academia no cubre formalmente. Representa un <strong>Vacío de Mercado (Océano Azul)</strong> ideal para captar alumnos corporativos.</li>
                     </ul>
                 </div>
@@ -798,13 +859,13 @@
             <div class="visual-card">
                 <h3 class="text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
                     <span class="material-symbols-outlined text-xs">pie_chart</span>
-                    2. Modelo de Precios Hedónicos (Competidores en Colombia)
+                    2. Precios del Mercado y Disposición a Pagar (Competidores en Colombia)
                 </h3>
-                <div id="chart-conjoint-wtp" class="h-72 w-full"></div>
+                <div id="chart-conjoint-wtp" class="h-80 w-full"></div>
                 <div class="text-[11px] text-slate-600 mt-2 bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1.5">
                     <p class="font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">translate</span> Traducción para Directivas (Evitar lectura errónea):</p>
                     <ul class="list-disc pl-4 space-y-1">
-                        <li><strong>¿Qué mide?</strong> Estima la Disposición a Pagar (WTP) implícita analizando la oferta de 35 programas competidores y calculando el precio por hora y prima por innovación (temas avanzados).</li>
+                        <li><strong>¿Qué mide?</strong> Estima cuánto está dispuesto a pagar el mercado analizando la oferta real de 35 programas competidores: calcula el precio por hora y el valor adicional que pagan por contenidos innovadores (temas avanzados). Cada punto es un competidor identificado por nombre.</li>
                         <li><strong>Lectura Correcta:</strong> La línea discontinua de tendencia muestra el precio sugerido. Los datos validan una <strong>prima por innovación curricular de $<span id="dyn-conjoint-wtp-enf"></span>M COP</strong> y una tarifa base por hora. Esto valida cobrar <strong>$4.0M COP</strong> (marcado con una estrella roja), posicionando el diplomado como una opción altamente competitiva y por debajo del precio sugerido de mercado (<strong>$<span id="dyn-conjoint-pref"></span>M COP</strong>).</li>
                     </ul>
                 </div>
@@ -816,12 +877,21 @@
                     <span class="material-symbols-outlined text-xs">timeline</span>
                     3. Volumen de Búsqueda y CPC en Colombia (Google Ads)
                 </h3>
-                <div id="chart-thompson-posterior" class="h-72 w-full"></div>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-[10px] uppercase font-bold text-primary tracking-wider mb-1">3a. Volumen de búsqueda mensual</p>
+                        <div id="chart-kw-volume" class="h-56 w-full"></div>
+                    </div>
+                    <div>
+                        <p class="text-[10px] uppercase font-bold text-amber-600 tracking-wider mb-1">3b. Costo por clic (CPC)</p>
+                        <div id="chart-kw-cpc" class="h-56 w-full"></div>
+                    </div>
+                </div>
                 <div class="text-[11px] text-slate-600 mt-2 bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1.5">
                     <p class="font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">translate</span> Traducción para Directivas (Evitar lectura errónea):</p>
                     <ul class="list-disc pl-4 space-y-1">
-                        <li><strong>¿Qué mide?</strong> El volumen mensual de búsquedas en Google y el Costo por Clic (CPC) promedio para términos transaccionales en Colombia.</li>
-                        <li><strong>Lectura Correcta:</strong> El volumen (barras azules) indica el tamaño del interés orgánico. El CPC (barras naranjas) mide el nivel de competencia comercial B2B. Un CPC promedio ponderado de <strong>$<span id="dyn-mab-winner-cr"></span> COP</strong> (con palabras ganadoras como <i class="text-primary"><span id="dyn-mab-winner-name"></span></i>) denota alta rentabilidad potencial del lead, justificando la inversión.</li>
+                        <li><strong>¿Qué mide?</strong> El volumen mensual de búsquedas en Google (gráfico superior) y el Costo por Clic o CPC (gráfico inferior) para términos relacionados con el programa en Colombia. Se presentan en barras separadas porque las escalas son muy distintas y juntas no se dejaban leer.</li>
+                        <li><strong>Lectura Correcta:</strong> El volumen (barras verdes) indica el tamaño del interés del mercado. El CPC (barras naranjas) mide cuánto cuesta competir por ese clic en pauta. Un CPC promedio ponderado de <strong>$<span id="dyn-mab-winner-cr"></span> COP</strong> (con palabras como <i class="text-primary"><span id="dyn-mab-winner-name"></span></i>) evidencia que la pauta en Google es costosa para este nicho, lo que refuerza la recomendación de captación directa B2B.</li>
                     </ul>
                 </div>
             </div>
@@ -830,7 +900,7 @@
             <div class="visual-card">
                 <h3 class="text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
                     <span class="material-symbols-outlined text-xs">trending_up</span>
-                    4. Simulación del Embudo de Conversión Comercial (Monte Carlo)
+                    4. Embudo de Conversión Comercial (Simulación de 10,000 escenarios)
                 </h3>
                 <div id="chart-msprt-path" class="h-72 w-full"></div>
                 <div class="text-[11px] text-slate-600 mt-2 bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1.5">
@@ -940,14 +1010,14 @@
                 <span class="material-symbols-outlined text-secondary">gavel</span>
                 Matriz de Decisiones GO / NO-GO para la Junta Directiva
             </h2>
-            <p class="text-xs text-slate-500">Reglas matemáticas basadas en Intervalos de Credibilidad Bayesiana (BCI) sobre la tasa de conversión transaccional corregida.</p>
+            <p class="text-xs text-slate-500">Reglas de decisión basadas en la probabilidad de rentabilidad estimada por el modelo de simulación.</p>
         </div>
 
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
-                        <th>Rango de Probabilidad Posterior P(θ ≥ θ_break-even | D)</th>
+                        <th>Probabilidad de Rentabilidad Estimada por el Modelo</th>
                         <th>Estado de Decisión Estratégica</th>
                         <th>Acción de Asignación de Recursos para el Diplomado</th>
                     </tr>
@@ -961,7 +1031,7 @@
                     <tr id="matrix-row-pivot">
                         <td class="font-semibold text-slate-700">Entre 70% y 80%</td>
                         <td><span class="badge badge-pivot px-2 py-1 rounded">Pívot / Iteración</span></td>
-                        <td class="text-slate-600">Reestructurar atributos del diplomado basados en coeficientes WTP; ejecutar un sub-experimento enfocado en landing.</td>
+                        <td class="text-slate-600">Reestructurar los atributos del diplomado según lo que el mercado más valora; ejecutar una prueba enfocada en la página de destino.</td>
                     </tr>
                     <tr id="matrix-row-nogo" class="bg-red-50/40 border-l-4 border-red-500">
                         <td class="font-bold text-red-950">Menor al 70% (Resultado Actual: <span id="dyn-matrix-prob">2.3%</span>)</td>
@@ -1134,7 +1204,7 @@
                     <h3 class="font-bold text-sm text-slate-100 uppercase tracking-wider">Naturaleza de la Demanda</h3>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    El vacío en volúmenes de búsqueda en Google (0 búsquedas/mes) no indica ausencia de mercado, sino una <strong>Latencia Cognitiva</strong> (demanda latente). Las empresas no conocen la terminología académica de descarbonización para realizar búsquedas activas, pero sus juntas directivas y gerentes enfrentan una urgencia comercial real impulsada por exigencias contractuales de clientes y entes de control para cuantificar y mitigar su impacto.
+                    El vacío en volúmenes de búsqueda en Google (0 búsquedas/mes) no indica ausencia de mercado, sino una <strong>demanda latente</strong>: las empresas aún no conocen la terminología académica de descarbonización para buscarla activamente, pero sus juntas directivas y gerentes enfrentan una urgencia comercial real impulsada por exigencias contractuales de clientes y entes de control para cuantificar y mitigar su impacto.
                 </p>
             </div>
             <div class="bg-slate-900 text-white p-6 relative overflow-hidden">
@@ -1198,6 +1268,14 @@
             "total_volume": 1010,
             "weighted_cpc_COP": 5557.25
         },
+        "intentional_keywords": [
+            {"keyword": "curso de descarbonización", "volume": 30},
+            {"keyword": "diplomado en sostenibilidad", "volume": 350},
+            {"keyword": "curso huella de carbono", "volume": 50},
+            {"keyword": "curso de sostenibilidad empresarial", "volume": 90},
+            {"keyword": "diplomado en gestión ambiental", "volume": 170},
+            {"keyword": "dónde estudiar descarbonización", "volume": 10}
+        ],
         "monte_carlo_baseline": {
             "prob_sub_inscripcion": 0.9998,
             "prob_rentabilidad_positiva": 0.0232,
@@ -1347,19 +1425,47 @@
         document.getElementById("kpi-vpn-val").innerText = formatMCOP(vpnVal);
         
         if (vpnVal < 0) {
-            document.getElementById("kpi-vpn-label").innerText = "Déficit Neto Proyectado (Inbound)";
+            document.getElementById("kpi-vpn-label").innerText = "Pérdida Proyectada (Pauta Digital Pasiva)";
             document.getElementById("kpi-vpn-val").className = "text-2xl font-extrabold text-rose-600 mt-1";
-            document.getElementById("kpi-vpn-interval").innerHTML = "Rango de pérdida estimada (95% confianza): <strong class='text-rose-600'>" + formatMCOP(vpnMin) + " a " + formatMCOP(vpnMax) + "</strong>.";
+            document.getElementById("kpi-vpn-interval").innerHTML = "Rango de pérdida estimada (95% de confianza): entre <strong class='text-rose-600'>$" + Math.abs(vpnMax).toFixed(2) + "M</strong> y <strong class='text-rose-600'>$" + Math.abs(vpnMin).toFixed(2) + "M COP</strong>.";
         } else {
-            document.getElementById("kpi-vpn-label").innerText = "Rentabilidad Financiera Proyectada (VPN Medio)";
+            document.getElementById("kpi-vpn-label").innerText = "Rentabilidad Neta Proyectada (Escenario Medio)";
             document.getElementById("kpi-vpn-val").className = "text-2xl font-extrabold text-emerald-600 mt-1";
-            document.getElementById("kpi-vpn-interval").innerHTML = "Rango de ganancia estimada (95% confianza): <strong class='text-emerald-600'>" + formatMCOP(vpnMin) + " a " + formatMCOP(vpnMax) + "</strong>.";
+            document.getElementById("kpi-vpn-interval").innerHTML = "Rango de ganancia estimada (95% de confianza): entre <strong class='text-emerald-600'>$" + vpnMin.toFixed(2) + "M</strong> y <strong class='text-emerald-600'>$" + vpnMax.toFixed(2) + "M COP</strong>.";
+        }
+        
+        // Banner explicativo del riesgo financiero (lenguaje de negocio)
+        if (document.getElementById("dyn-risk-mean") && vpnVal < 0) {
+            document.getElementById("dyn-risk-mean").innerText = "$" + Math.abs(vpnVal).toFixed(2) + "M COP";
+            document.getElementById("dyn-risk-min").innerText = "$" + Math.abs(vpnMin).toFixed(2) + "M";
+            document.getElementById("dyn-risk-max").innerText = "$" + Math.abs(vpnMax).toFixed(2) + "M";
+            document.getElementById("dyn-risk-pauta").innerText = "$" + rawData.monte_carlo_baseline.costo_pauta_M_COP.toFixed(2) + "M";
         }
         
         // KPI 3 y 4
         document.getElementById("kpi-cpc-val").innerText = "$" + Math.round(rawData.search_intent.weighted_cpc_COP).toLocaleString('es-CO') + " COP";
         document.getElementById("kpi-pauta-val").innerText = "$" + rawData.monte_carlo_baseline.costo_pauta_M_COP.toFixed(2) + "M COP";
         
+        // Tabla SEO: palabras clave con intención de estudio (volumen mensual estimado)
+        const intentionalKw = rawData.intentional_keywords || [
+            { "keyword": "curso de descarbonización", "volume": 30 },
+            { "keyword": "diplomado en sostenibilidad", "volume": 350 },
+            { "keyword": "curso huella de carbono", "volume": 50 },
+            { "keyword": "curso de sostenibilidad empresarial", "volume": 90 },
+            { "keyword": "diplomado en gestión ambiental", "volume": 170 },
+            { "keyword": "dónde estudiar descarbonización", "volume": 10 }
+        ];
+        const seoTbody = document.getElementById("seo-intent-tbody");
+        if (seoTbody) {
+            seoTbody.innerHTML = intentionalKw.map(k =>
+                '<div class="flex justify-between items-center py-1.5 border-b border-slate-800">' +
+                    '<span class="text-slate-200">' + k.keyword + '</span>' +
+                    '<span class="font-bold text-white">' + k.volume.toLocaleString('es-CO') + '</span>' +
+                '</div>'
+            ).join('');
+            document.getElementById("seo-intent-total").innerText = intentionalKw.reduce((sum, k) => sum + k.volume, 0).toLocaleString('es-CO');
+        }
+
         // Inyecciones dinámicas en los textos explicativos para evitar discrepancias
         document.getElementById("dyn-void-vanguard").innerText = rawData.semantic_voids.Vanguard.toFixed(3);
         document.getElementById("dyn-void-iso").innerText = rawData.semantic_voids.ISO.toFixed(3);
@@ -1464,25 +1570,78 @@
         gridcolor: '#F1F5F9'
     }, {displayModeBar: false});
 
-    // 2. Hedonic Pricing Scatter Plot
+    // 2. Market Pricing Scatter Plot (Competidores identificados por nombre)
     const compStandard = rawData.competitors.filter(c => c.prestige === 0);
     const compElite = rawData.competitors.filter(c => c.prestige === 1);
+    
+    // Nombres cortos de las instituciones para etiquetar cada punto del gráfico
+    function shortCompName(c) {
+        const map = {
+            "Pontificia Universidad Javeriana": "Javeriana",
+            "Universidad de los Andes": "Los Andes",
+            "Universidad Externado de Colombia": "Externado",
+            "Universidad del Rosario": "Rosario",
+            "Universidad de la Sabana": "Sabana",
+            "Universidad EAN": "EAN",
+            "Universidad EIA": "EIA",
+            "Universidad Nacional de Colombia": "Nacional",
+            "Universidad de Antioquia": "U. de Antioquia",
+            "Universidad Pontificia Bolivariana": "Bolivariana",
+            "Universidad ICESI": "ICESI",
+            "Universidad del Norte": "U. del Norte",
+            "Universidad Sergio Arboleda": "Sergio Arboleda",
+            "Universidad de la Salle": "La Salle",
+            "Universidad Santo Tomás": "Santo Tomás",
+            "Universidad CESME (CESSA)": "CESME",
+            "Universidad Colegio Mayor de Nuestra Señora del Rosario": "Rosario",
+            "Universidad Militar Nueva Granada": "Nueva Granada",
+            "Universidad de Ciencias Aplicadas y Ambientales UDCA": "UDCA",
+            "Universidad Católica de Colombia": "Católica",
+            "Universidad de Medellín": "U. de Medellín",
+            "Universidad Autónoma de Occidente": "UAO",
+            "Universidad de Caldas": "U. de Caldas",
+            "Universidad Tecnológica de Pereira": "UTP",
+            "Universidad Industrial de Santander": "UIS",
+            "Universidad del Cauca": "U. del Cauca",
+            "Universidad Mariana": "Mariana",
+            "Universidad de Ibagué": "U. de Ibagué",
+            "Universidad Pedagógica y Tecnológica de Colombia": "UPTC",
+            "Universidad del Quindío": "U. del Quindío"
+        };
+        const base = map[c.university] || c.university;
+        // Sufijo por tipo de programa para diferenciar instituciones con varios programas
+        const suffix = c.type.startsWith("Curso") ? " (C)" : c.type.startsWith("Diplomado") ? " (D)" : c.type.startsWith("Maestría") ? " (M)" : " (E)";
+        return base + suffix;
+    }
+    
+    // Alternar posición de etiquetas (arriba/abajo) para reducir traslapes en clústeres densos
+    const altTextPos = (arr) => arr.map((_, i) => i % 2 === 0 ? 'top center' : 'bottom center');
     
     const traceStandard = {
         x: compStandard.map(c => c.hours),
         y: compStandard.map(c => c.price / 1e6),
-        mode: 'markers',
+        text: compStandard.map(shortCompName),
+        customdata: compStandard.map(c => c.program),
+        mode: 'markers+text',
         type: 'scatter',
         name: 'Prestigio Estándar',
+        textposition: altTextPos(compStandard),
+        textfont: { size: 8, color: '#014948' },
+        hovertemplate: '<b>%{text}</b><br>%{customdata}<br>%{x} horas — $%{y:.2f}M COP<extra></extra>',
         marker: { color: '#014948', size: 10, opacity: 0.7 }
     };
     
     const traceElite = {
         x: compElite.map(c => c.hours),
         y: compElite.map(c => c.price / 1e6),
-        mode: 'markers',
+        text: compElite.map(shortCompName),
+        customdata: compElite.map(c => c.program),
+        mode: 'markers+text',
         type: 'scatter',
         name: 'Prestigio Élite',
+        textposition: altTextPos(compElite),
+        textfont: { size: 8, color: '#B45309' },
+        hovertemplate: '<b>%{text}</b><br>%{customdata}<br>%{x} horas — $%{y:.2f}M COP<extra></extra>',
         marker: { color: '#F59E0B', size: 12, symbol: 'triangle-up', opacity: 0.8 }
     };
     
@@ -1494,7 +1653,7 @@
         y: yLine,
         mode: 'lines',
         type: 'scatter',
-        name: 'Precio Sugerido (OLS)',
+        name: 'Precio Sugerido por el Mercado',
         line: { color: '#67D301', width: 2, dash: 'dash' }
     };
     
@@ -1502,9 +1661,13 @@
     const traceUEB = {
         x: [96],
         y: [4.0],
-        mode: 'markers',
+        text: ['U. El Bosque'],
+        mode: 'markers+text',
         type: 'scatter',
-        name: 'UEB (96h / $4.0M)',
+        name: 'U. El Bosque (96h / $4.0M)',
+        textposition: 'bottom center',
+        textfont: { size: 10, color: 'red' },
+        hovertemplate: '<b>Universidad El Bosque (Propuesta)</b><br>96 horas — $4.00M COP<extra></extra>',
         marker: { color: 'red', size: 16, symbol: 'star' }
     };
     
@@ -1515,41 +1678,43 @@
         legend: { orientation: 'h', y: -0.2 },
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)'
-    }, {displayModeBar: false});
+    }, {displayModeBar: true, displaylogo: false, modeBarButtonsToRemove: ['select2d', 'lasso2d']});
 
-    // 3. Search Intent Keywords & CPC
+    // 3. Search Intent Keywords & CPC (barras separadas para diferenciación visual)
     const kwNames = rawData.search_intent.keywords.map(k => k.keyword);
     const kwVolumes = rawData.search_intent.keywords.map(k => k.volume);
     const kwCPCs = rawData.search_intent.keywords.map(k => k.cpc);
     
-    const traceVolume = {
+    const kwAxisX = { tickfont: { size: 9 }, tickangle: -25 };
+    
+    // 3a. Volumen de búsqueda mensual (escala propia)
+    Plotly.newPlot("chart-kw-volume", [{
         x: kwNames,
         y: kwVolumes,
         type: 'bar',
         name: 'Volumen Búsqueda (Mensual)',
-        marker: { color: '#014948' }
-    };
+        marker: { color: '#014948' },
+        hovertemplate: '%{x}: <b>%{y}</b> búsquedas/mes<extra></extra>'
+    }], {
+        margin: { t: 10, b: 70, l: 50, r: 10 },
+        xaxis: kwAxisX,
+        yaxis: { title: { text: "Búsquedas/mes", font: { size: 10, color: '#014948' } } },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)'
+    }, {displayModeBar: false});
     
-    const traceCPC = {
+    // 3b. Costo por clic (escala propia)
+    Plotly.newPlot("chart-kw-cpc", [{
         x: kwNames,
         y: kwCPCs,
         type: 'bar',
         name: 'CPC (COP)',
-        yaxis: 'y2',
-        marker: { color: '#F59E0B' }
-    };
-    
-    Plotly.newPlot("chart-thompson-posterior", [traceVolume, traceCPC], {
-        margin: { t: 20, b: 60, l: 45, r: 45 },
-        xaxis: { tickfont: { size: 9 } },
-        yaxis: { title: { text: "Volumen de Búsqueda", font: { size: 11, color: '#014948' } } },
-        yaxis2: {
-            title: { text: "Costo por Clic (CPC) COP", font: { size: 11, color: '#F59E0B' } },
-            overlaying: 'y',
-            side: 'right'
-        },
-        barmode: 'group',
-        legend: { orientation: 'h', y: -0.3 },
+        marker: { color: '#F59E0B' },
+        hovertemplate: '%{x}: <b>$%{y:,.0f} COP</b><extra></extra>'
+    }], {
+        margin: { t: 10, b: 70, l: 60, r: 10 },
+        xaxis: kwAxisX,
+        yaxis: { title: { text: "CPC (COP)", font: { size: 10, color: '#F59E0B' } } },
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)'
     }, {displayModeBar: false});

@@ -43,6 +43,32 @@ window.dashboardData = {
     "total_volume": 1010,
     "weighted_cpc_COP": 5557.257425742574
   },
+  "intentional_keywords": [
+    {
+      "keyword": "curso de descarbonizaci\u00f3n",
+      "volume": 30
+    },
+    {
+      "keyword": "diplomado en sostenibilidad",
+      "volume": 350
+    },
+    {
+      "keyword": "curso huella de carbono",
+      "volume": 50
+    },
+    {
+      "keyword": "curso de sostenibilidad empresarial",
+      "volume": 90
+    },
+    {
+      "keyword": "diplomado en gesti\u00f3n ambiental",
+      "volume": 170
+    },
+    {
+      "keyword": "d\u00f3nde estudiar descarbonizaci\u00f3n",
+      "volume": 10
+    }
+  ],
   "monte_carlo_baseline": {
     "prob_sub_inscripcion": 0.9997,
     "prob_rentabilidad_positiva": 0.0225,
