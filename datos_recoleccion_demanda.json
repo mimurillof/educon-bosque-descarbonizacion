@@ -1,0 +1,396 @@
+{
+  "demand_mining": [
+    {
+      "text": "Ingeniero de Descarbonización y Cambio Climático para diseñar herramientas personalizadas para calcular la huella de carbono corporativa de alcance 1, 2 y 3, formular planes de reducción e implementar modelos de evaluación de ciclo de vida (LCA / ACV) para productos y proyectos corporativos.",
+      "category": 0
+    },
+    {
+      "text": "Profesional en Ingeniería con conocimientos avanzados y experiencia de 3 a 4 años en contabilidad de gases de efecto invernadero bajo estándares y marcos clave como GHG Protocol, ISO 14064 y Análisis de Ciclo de Vida (LCA).",
+      "category": 0
+    },
+    {
+      "text": "Realizar la medición, cálculo y reporte de la huella de carbono institucional en Alcances 1, 2 y 3 conforme a los referentes metodológicos estandarizados y oficiales aplicables para Colombia (Licitación Pública SAE S.A.S bajo ISO 14064-1 y GHG Protocol).",
+      "category": 0
+    },
+    {
+      "text": "Consultor de Contabilidad de GEI y Cambio Climático con habilidades técnicas en formulación de hojas de ruta de carbono neutralidad y validación de metas de reducción de emisiones bajo el estándar científico de SBTi (Science Based Targets initiative).",
+      "category": 0
+    },
+    {
+      "text": "Coordinador Técnico Comercial de Sostenibilidad con experiencia en consultoría corporativa y estructuración de reportes ESG bajo marcos internacionales como GRI, SASB, TCFD, CDP y validación de metas SBTi.",
+      "category": 1
+    },
+    {
+      "text": "Aplicación de los criterios técnicos de la Taxonomía Verde de Colombia bajo las directrices obligatorias de la Circular Externa 005 de 2022 emitida por la Superintendencia Financiera de Colombia (SFC) para emisores de valores y entidades financieras.",
+      "category": 1
+    },
+    {
+      "text": "Asesoría técnica para la aplicación de la Taxonomía Verde de Colombia en la gestión de Créditos Verdes en alianza con la Superintendencia Financiera de Colombia y Asobancaria.",
+      "category": 1
+    },
+    {
+      "text": "Formulación de planes de mitigación, compensación de emisiones institucionales y proyectos de resiliencia climática regional bajo la Estrategia Colombiana de Desarrollo Bajo en Carbono (ECDBC).",
+      "category": 1
+    },
+    {
+      "text": "Desarrollo de herramientas digitales personalizadas de seguimiento ambiental y análisis de datos en Excel avanzado, Python, SQL o Matlab para automatización de la contabilidad de huella de carbono industrial.",
+      "category": 2
+    },
+    {
+      "text": "Uso de soluciones tecnológicas avanzadas, sensores inteligentes IoT y plataformas de visualización para el monitoreo continuo y en tiempo real de inventarios de gases de efecto invernadero.",
+      "category": 2
+    }
+  ],
+  "competitors": [
+    {
+      "university": "Pontificia Universidad Javeriana",
+      "program": "Diplomado en Gestión de la Sostenibilidad y Carbono Neutro",
+      "type": "Diplomado / Virtual",
+      "hours": 100,
+      "focus": "Gestión corporativa, cálculo básico, mercados de carbono",
+      "price": 4200000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad de los Andes",
+      "program": "Curso en Estrategias de Descarbonización y Huella de Carbono",
+      "type": "Curso / Virtual",
+      "hours": 32,
+      "focus": "Cálculo técnico y metodologías de mitigación sectorial",
+      "price": 2100000,
+      "prestige": 1,
+      "innovacion": 1
+    },
+    {
+      "university": "Universidad Externado de Colombia",
+      "program": "Diplomado en Sostenibilidad y Cambio Climático",
+      "type": "Diplomado / Híbrido",
+      "hours": 90,
+      "focus": "Políticas públicas, ESG, finanzas sostenibles y biodiversidad",
+      "price": 3800000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad del Rosario",
+      "program": "Curso en Medición de Huella de Carbono Corporativa",
+      "type": "Curso / Virtual",
+      "hours": 24,
+      "focus": "Herramientas de reporte, Alcance 1, 2 y 3, ISO 14064",
+      "price": 1500000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad de la Sabana",
+      "program": "Diplomado en Gestión Ambiental y Desarrollo Sostenible",
+      "type": "Diplomado / Virtual",
+      "hours": 96,
+      "focus": "Dirección de sostenibilidad, reportes GRI y economía circular",
+      "price": 3500000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad EAN",
+      "program": "Maestría en Sostenibilidad",
+      "type": "Maestría / Presencial",
+      "hours": 240,
+      "focus": "Investigación avanzada, modelos de descarbonización profunda",
+      "price": 18000000,
+      "prestige": 0,
+      "innovacion": 1
+    },
+    {
+      "university": "Universidad EAN",
+      "program": "Especialización en Evaluación Ambiental de Proyectos",
+      "type": "Especialización / Virtual",
+      "hours": 120,
+      "focus": "Gestión del riesgo ambiental y licenciamiento corporativo",
+      "price": 9500000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad EIA",
+      "program": "Diplomado en Transición Energética y Descarbonización",
+      "type": "Diplomado / Híbrido",
+      "hours": 100,
+      "focus": "Hidrógeno verde, energías renovables y compensación de GEI",
+      "price": 4800000,
+      "prestige": 1,
+      "innovacion": 1
+    },
+    {
+      "university": "Universidad Nacional de Colombia",
+      "program": "Curso de Contabilidad de Gases de Efecto Invernadero",
+      "type": "Curso / Virtual",
+      "hours": 40,
+      "focus": "Rigor científico en cálculo de factores de emisión",
+      "price": 1800000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad de Antioquia",
+      "program": "Diplomado en Cambio Climático y Huella de Carbono",
+      "type": "Diplomado / Virtual",
+      "hours": 120,
+      "focus": "Políticas territoriales y cálculo de carbono institucional",
+      "price": 3000000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Pontificia Bolivariana",
+      "program": "Diplomado en Economía Circular y Sostenibilidad",
+      "type": "Diplomado / Híbrido",
+      "hours": 96,
+      "focus": "Ciclo de vida del producto y modelos circulares B2B",
+      "price": 3200000,
+      "prestige": 0,
+      "innovacion": 1
+    },
+    {
+      "university": "Universidad ICESI",
+      "program": "Diplomado en ESG y Sostenibilidad Financiera",
+      "type": "Diplomado / Virtual",
+      "hours": 80,
+      "focus": "Taxonomía verde y estructuración de bonos verdes y sostenibles",
+      "price": 4100000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad del Norte",
+      "program": "Curso de Medición Ambiental B2B",
+      "type": "Curso / Virtual",
+      "hours": 32,
+      "focus": "Normas ISO e indicadores de huella hídrica y de carbono",
+      "price": 2200000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad del Norte",
+      "program": "Diplomado en Gestión y Compensación de Carbono",
+      "type": "Diplomado / Híbrido",
+      "hours": 90,
+      "focus": "Mecanismos de no causación del impuesto al carbono y REDD+",
+      "price": 3900000,
+      "prestige": 1,
+      "innovacion": 1
+    },
+    {
+      "university": "Universidad Sergio Arboleda",
+      "program": "Curso en Mercados de Carbono y Bonos Verdes",
+      "type": "Curso / Virtual",
+      "hours": 30,
+      "focus": "Financiación de proyectos de carbono y estructuración legal",
+      "price": 2000000,
+      "prestige": 0,
+      "innovacion": 1
+    },
+    {
+      "university": "Universidad Sergio Arboleda",
+      "program": "Diplomado en Dirección y Liderazgo Sostenible",
+      "type": "Diplomado / Virtual",
+      "hours": 90,
+      "focus": "Gobernanza corporativa, ética empresarial y reportes ESG",
+      "price": 3100000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad de la Salle",
+      "program": "Diplomado en Mitigación del Cambio Climático",
+      "type": "Diplomado / Virtual",
+      "hours": 100,
+      "focus": "Proyectos de desarrollo sostenible y compensación agroforestal",
+      "price": 2900000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Santo Tomás",
+      "program": "Curso en Normativa Ambiental ISO 14064",
+      "type": "Curso / Virtual",
+      "hours": 24,
+      "focus": "Requisitos específicos para verificación de inventarios de GEI",
+      "price": 1300000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Santo Tomás",
+      "program": "Diplomado en Gestión de Proyectos de Sostenibilidad",
+      "type": "Diplomado / Híbrido",
+      "hours": 96,
+      "focus": "Habilidades gerenciales aplicadas al sector ambiental",
+      "price": 2800000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad CESME (CESSA)",
+      "program": "Curso en Finanzas Verdes y Sostenibilidad",
+      "type": "Curso / Virtual",
+      "hours": 36,
+      "focus": "Evaluación de riesgos climáticos en carteras de inversión",
+      "price": 2500000,
+      "prestige": 0,
+      "innovacion": 1
+    },
+    {
+      "university": "Universidad Colegio Mayor de Nuestra Señora del Rosario",
+      "program": "Diplomado en Derecho Ambiental B2B",
+      "type": "Diplomado / Presencial",
+      "hours": 80,
+      "focus": "Régimen sancionatorio, licencias y pasivos ambientales",
+      "price": 4300000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Militar Nueva Granada",
+      "program": "Diplomado en Eco-Eficiencia Industrial",
+      "type": "Diplomado / Virtual",
+      "hours": 120,
+      "focus": "Optimización energética y disminución de emisiones corporativas",
+      "price": 3400000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad de Ciencias Aplicadas y Ambientales UDCA",
+      "program": "Diplomado en Huella Hídrica y Huella de Carbono",
+      "type": "Diplomado / Híbrido",
+      "hours": 90,
+      "focus": "Estándares corporativos de cálculo y reportes nacionales",
+      "price": 2700000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Católica de Colombia",
+      "program": "Diplomado en Construcción Sostenible",
+      "type": "Diplomado / Virtual",
+      "hours": 100,
+      "focus": "Certificación LEED, ahorro energético y materiales de bajo impacto",
+      "price": 3200000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad de Medellín",
+      "program": "Diplomado en Auditoría Ambiental y GEI",
+      "type": "Diplomado / Virtual",
+      "hours": 96,
+      "focus": "Procedimiento de interventoría y aseguramiento bajo ISO 14064-3",
+      "price": 2950000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Autónoma de Occidente",
+      "program": "Curso en Huella de Carbono y GHG Protocol",
+      "type": "Curso / Virtual",
+      "hours": 32,
+      "focus": "Metodología estándar para el reporte corporativo de GEI",
+      "price": 1750000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Autónoma de Occidente",
+      "program": "Diplomado en Eficiencia Energética",
+      "type": "Diplomado / Híbrido",
+      "hours": 120,
+      "focus": "Auditorías energéticas, ISO 50001 e integraciones de red",
+      "price": 3600000,
+      "prestige": 0,
+      "innovacion": 1
+    },
+    {
+      "university": "Universidad de Caldas",
+      "program": "Curso en Sistemas de Gestión de Sostenibilidad",
+      "type": "Curso / Virtual",
+      "hours": 40,
+      "focus": "Fundamentos de reporte corporativo GRI y objetivos ODS",
+      "price": 1600000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Tecnológica de Pereira",
+      "program": "Diplomado en Gestión Ambiental B2B",
+      "type": "Diplomado / Virtual",
+      "hours": 100,
+      "focus": "Hojas de ruta de mitigación y adaptación al cambio climático",
+      "price": 2500000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Industrial de Santander",
+      "program": "Curso de Diagnóstico de Gases de Efecto Invernadero",
+      "type": "Curso / Virtual",
+      "hours": 30,
+      "focus": "Cálculo técnico y software de apoyo para reporte de emisiones",
+      "price": 1900000,
+      "prestige": 1,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad del Cauca",
+      "program": "Diplomado en Sostenibilidad Territorial y Clima",
+      "type": "Diplomado / Híbrido",
+      "hours": 90,
+      "focus": "Acciones locales frente a la descarbonización agroindustrial",
+      "price": 2200000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Mariana",
+      "program": "Curso de Medición de Carbono en Cadena de Valor",
+      "type": "Curso / Virtual",
+      "hours": 24,
+      "focus": "Cálculo del Alcance 3 y relación con proveedores estratégicos",
+      "price": 1200000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad de Ibagué",
+      "program": "Diplomado en Responsabilidad Social y Carbono Neutro",
+      "type": "Diplomado / Híbrido",
+      "hours": 80,
+      "focus": "Gobernanza corporativa, proyectos REDD+ y compensación forestal",
+      "price": 2600000,
+      "prestige": 0,
+      "innovacion": 0
+    },
+    {
+      "university": "Universidad Pedagógica y Tecnológica de Colombia",
+      "program": "Diplomado en Gestión de la Descarbonización",
+      "type": "Diplomado / Virtual",
+      "hours": 100,
+      "focus": "Medidas de mitigación en industria pesada y minería verde",
+      "price": 2800000,
+      "prestige": 0,
+      "innovacion": 1
+    },
+    {
+      "university": "Universidad del Quindío",
+      "program": "Curso en Compensación Forestal y Captura de CO2",
+      "type": "Curso / Virtual",
+      "hours": 32,
+      "focus": "Cálculo de biomasa y formulación de proyectos forestales",
+      "price": 1450000,
+      "prestige": 0,
+      "innovacion": 0
+    }
+  ]
+}

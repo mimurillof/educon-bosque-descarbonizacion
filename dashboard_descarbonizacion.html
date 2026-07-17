@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="noindex, nofollow" name="robots"/>
+    <title>Dashboard MVP: Estrategias de Descarbonización - U. El Bosque</title>
+    <!-- Tailwind CSS y Fuentes -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Plotly.js CDN -->
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <!-- KaTeX CDN for mathematical formula rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <!-- Inlined data for 100% portability (Auto-updated by Python pipeline) -->
+    <script id="dashboard-data-script">
+        window.dashboardData = {
+            "semantic_voids": {
+                        "ISO": 0.6646679932480883,
+                        "Greenwashing": 0.5932794308736993,
+                        "Vanguard": 0.7023134365952016
+            },
+            "hedonic_pricing": {
+                        "beta_0_base_fee": -1.2056705199290119,
+                        "beta_1_price_per_hour": 0.05320133550470354,
+                        "beta_2_innovation_premium": 0.8388454569514249,
+                        "beta_3_prestige_premium": 0.433166133609526,
+                        "r_squared": 0.6672413981870364,
+                        "suggested_price": 4.740503145473952
+            },
+            "search_intent": {
+                        "keywords": [
+                                    {
+                                                "keyword": "diplomado en sostenibilidad",
+                                                "volume": 350,
+                                                "cpc": 4500
+                                    },
+                                    {
+                                                "keyword": "curso huella de carbono",
+                                                "volume": 50,
+                                                "cpc": 2388
+                                    },
+                                    {
+                                                "keyword": "medición de huella de carbono",
+                                                "volume": 170,
+                                                "cpc": 2521
+                                    },
+                                    {
+                                                "keyword": "descarbonizacion",
+                                                "volume": 260,
+                                                "cpc": 9961
+                                    },
+                                    {
+                                                "keyword": "taxonomía verde colombia",
+                                                "volume": 180,
+                                                "cpc": 5000
+                                    }
+                        ],
+                        "total_volume": 1010,
+                        "weighted_cpc_COP": 5557.257425742574
+            },
+            "monte_carlo_baseline": {
+                        "prob_sub_inscripcion": 0.9997,
+                        "prob_rentabilidad_positiva": 0.0225,
+                        "utilidad_esperada_M_COP": -15.093116138613862,
+                        "intervalo_credibilidad_95_min": -20.83588613861386,
+                        "intervalo_credibilidad_95_max": -2.3358861386138603,
+                        "costo_pauta_M_COP": 8.33588613861386
+            },
+            "competitors": [
+                        {
+                                    "university": "Pontificia Universidad Javeriana",
+                                    "program": "Diplomado en Gestión de la Sostenibilidad y Carbono Neutro",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 100,
+                                    "focus": "Gestión corporativa, cálculo básico, mercados de carbono",
+                                    "price": 4200000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad de los Andes",
+                                    "program": "Curso en Estrategias de Descarbonización y Huella de Carbono",
+                                    "type": "Curso / Virtual",
+                                    "hours": 32,
+                                    "focus": "Cálculo técnico y metodologías de mitigación sectorial",
+                                    "price": 2100000,
+                                    "prestige": 1,
+                                    "innovacion": 1
+                        },
+                        {
+                                    "university": "Universidad Externado de Colombia",
+                                    "program": "Diplomado en Sostenibilidad y Cambio Climático",
+                                    "type": "Diplomado / Híbrido",
+                                    "hours": 90,
+                                    "focus": "Políticas públicas, ESG, finanzas sostenibles y biodiversidad",
+                                    "price": 3800000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad del Rosario",
+                                    "program": "Curso en Medición de Huella de Carbono Corporativa",
+                                    "type": "Curso / Virtual",
+                                    "hours": 24,
+                                    "focus": "Herramientas de reporte, Alcance 1, 2 y 3, ISO 14064",
+                                    "price": 1500000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad de la Sabana",
+                                    "program": "Diplomado en Gestión Ambiental y Desarrollo Sostenible",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 96,
+                                    "focus": "Dirección de sostenibilidad, reportes GRI y economía circular",
+                                    "price": 3500000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad EAN",
+                                    "program": "Maestría en Sostenibilidad",
+                                    "type": "Maestría / Presencial",
+                                    "hours": 240,
+                                    "focus": "Investigación avanzada, modelos de descarbonización profunda",
+                                    "price": 18000000,
+                                    "prestige": 0,
+                                    "innovacion": 1
+                        },
+                        {
+                                    "university": "Universidad EAN",
+                                    "program": "Especialización en Evaluación Ambiental de Proyectos",
+                                    "type": "Especialización / Virtual",
+                                    "hours": 120,
+                                    "focus": "Gestión del riesgo ambiental y licenciamiento corporativo",
+                                    "price": 9500000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad EIA",
+                                    "program": "Diplomado en Transición Energética y Descarbonización",
+                                    "type": "Diplomado / Híbrido",
+                                    "hours": 100,
+                                    "focus": "Hidrógeno verde, energías renovables y compensación de GEI",
+                                    "price": 4800000,
+                                    "prestige": 1,
+                                    "innovacion": 1
+                        },
+                        {
+                                    "university": "Universidad Nacional de Colombia",
+                                    "program": "Curso de Contabilidad de Gases de Efecto Invernadero",
+                                    "type": "Curso / Virtual",
+                                    "hours": 40,
+                                    "focus": "Rigor científico en cálculo de factores de emisión",
+                                    "price": 1800000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad de Antioquia",
+                                    "program": "Diplomado en Cambio Climático y Huella de Carbono",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 120,
+                                    "focus": "Políticas territoriales y cálculo de carbono institucional",
+                                    "price": 3000000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Pontificia Bolivariana",
+                                    "program": "Diplomado en Economía Circular y Sostenibilidad",
+                                    "type": "Diplomado / Híbrido",
+                                    "hours": 96,
+                                    "focus": "Ciclo de vida del producto y modelos circulares B2B",
+                                    "price": 3200000,
+                                    "prestige": 0,
+                                    "innovacion": 1
+                        },
+                        {
+                                    "university": "Universidad ICESI",
+                                    "program": "Diplomado en ESG y Sostenibilidad Financiera",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 80,
+                                    "focus": "Taxonomía verde y estructuración de bonos verdes y sostenibles",
+                                    "price": 4100000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad del Norte",
+                                    "program": "Curso de Medición Ambiental B2B",
+                                    "type": "Curso / Virtual",
+                                    "hours": 32,
+                                    "focus": "Normas ISO e indicadores de huella hídrica y de carbono",
+                                    "price": 2200000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad del Norte",
+                                    "program": "Diplomado en Gestión y Compensación de Carbono",
+                                    "type": "Diplomado / Híbrido",
+                                    "hours": 90,
+                                    "focus": "Mecanismos de no causación del impuesto al carbono y REDD+",
+                                    "price": 3900000,
+                                    "prestige": 1,
+                                    "innovacion": 1
+                        },
+                        {
+                                    "university": "Universidad Sergio Arboleda",
+                                    "program": "Curso en Mercados de Carbono y Bonos Verdes",
+                                    "type": "Curso / Virtual",
+                                    "hours": 30,
+                                    "focus": "Financiación de proyectos de carbono y estructuración legal",
+                                    "price": 2000000,
+                                    "prestige": 0,
+                                    "innovacion": 1
+                        },
+                        {
+                                    "university": "Universidad Sergio Arboleda",
+                                    "program": "Diplomado en Dirección y Liderazgo Sostenible",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 90,
+                                    "focus": "Gobernanza corporativa, ética empresarial y reportes ESG",
+                                    "price": 3100000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad de la Salle",
+                                    "program": "Diplomado en Mitigación del Cambio Climático",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 100,
+                                    "focus": "Proyectos de desarrollo sostenible y compensación agroforestal",
+                                    "price": 2900000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Santo Tomás",
+                                    "program": "Curso en Normativa Ambiental ISO 14064",
+                                    "type": "Curso / Virtual",
+                                    "hours": 24,
+                                    "focus": "Requisitos específicos para verificación de inventarios de GEI",
+                                    "price": 1300000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Santo Tomás",
+                                    "program": "Diplomado en Gestión de Proyectos de Sostenibilidad",
+                                    "type": "Diplomado / Híbrido",
+                                    "hours": 96,
+                                    "focus": "Habilidades gerenciales aplicadas al sector ambiental",
+                                    "price": 2800000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad CESME (CESSA)",
+                                    "program": "Curso en Finanzas Verdes y Sostenibilidad",
+                                    "type": "Curso / Virtual",
+                                    "hours": 36,
+                                    "focus": "Evaluación de riesgos climáticos en carteras de inversión",
+                                    "price": 2500000,
+                                    "prestige": 0,
+                                    "innovacion": 1
+                        },
+                        {
+                                    "university": "Universidad Colegio Mayor de Nuestra Señora del Rosario",
+                                    "program": "Diplomado en Derecho Ambiental B2B",
+                                    "type": "Diplomado / Presencial",
+                                    "hours": 80,
+                                    "focus": "Régimen sancionatorio, licencias y pasivos ambientales",
+                                    "price": 4300000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Militar Nueva Granada",
+                                    "program": "Diplomado en Eco-Eficiencia Industrial",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 120,
+                                    "focus": "Optimización energética y disminución de emisiones corporativas",
+                                    "price": 3400000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad de Ciencias Aplicadas y Ambientales UDCA",
+                                    "program": "Diplomado en Huella Hídrica y Huella de Carbono",
+                                    "type": "Diplomado / Híbrido",
+                                    "hours": 90,
+                                    "focus": "Estándares corporativos de cálculo y reportes nacionales",
+                                    "price": 2700000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Católica de Colombia",
+                                    "program": "Diplomado en Construcción Sostenible",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 100,
+                                    "focus": "Certificación LEED, ahorro energético y materiales de bajo impacto",
+                                    "price": 3200000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad de Medellín",
+                                    "program": "Diplomado en Auditoría Ambiental y GEI",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 96,
+                                    "focus": "Procedimiento de interventoría y aseguramiento bajo ISO 14064-3",
+                                    "price": 2950000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Autónoma de Occidente",
+                                    "program": "Curso en Huella de Carbono y GHG Protocol",
+                                    "type": "Curso / Virtual",
+                                    "hours": 32,
+                                    "focus": "Metodología estándar para el reporte corporativo de GEI",
+                                    "price": 1750000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Autónoma de Occidente",
+                                    "program": "Diplomado en Eficiencia Energética",
+                                    "type": "Diplomado / Híbrido",
+                                    "hours": 120,
+                                    "focus": "Auditorías energéticas, ISO 50001 e integraciones de red",
+                                    "price": 3600000,
+                                    "prestige": 0,
+                                    "innovacion": 1
+                        },
+                        {
+                                    "university": "Universidad de Caldas",
+                                    "program": "Curso en Sistemas de Gestión de Sostenibilidad",
+                                    "type": "Curso / Virtual",
+                                    "hours": 40,
+                                    "focus": "Fundamentos de reporte corporativo GRI y objetivos ODS",
+                                    "price": 1600000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Tecnológica de Pereira",
+                                    "program": "Diplomado en Gestión Ambiental B2B",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 100,
+                                    "focus": "Hojas de ruta de mitigación y adaptación al cambio climático",
+                                    "price": 2500000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Industrial de Santander",
+                                    "program": "Curso de Diagnóstico de Gases de Efecto Invernadero",
+                                    "type": "Curso / Virtual",
+                                    "hours": 30,
+                                    "focus": "Cálculo técnico y software de apoyo para reporte de emisiones",
+                                    "price": 1900000,
+                                    "prestige": 1,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad del Cauca",
+                                    "program": "Diplomado en Sostenibilidad Territorial y Clima",
+                                    "type": "Diplomado / Híbrido",
+                                    "hours": 90,
+                                    "focus": "Acciones locales frente a la descarbonización agroindustrial",
+                                    "price": 2200000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Mariana",
+                                    "program": "Curso de Medición de Carbono en Cadena de Valor",
+                                    "type": "Curso / Virtual",
+                                    "hours": 24,
+                                    "focus": "Cálculo del Alcance 3 y relación con proveedores estratégicos",
+                                    "price": 1200000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad de Ibagué",
+                                    "program": "Diplomado en Responsabilidad Social y Carbono Neutro",
+                                    "type": "Diplomado / Híbrido",
+                                    "hours": 80,
+                                    "focus": "Gobernanza corporativa, proyectos REDD+ y compensación forestal",
+                                    "price": 2600000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        },
+                        {
+                                    "university": "Universidad Pedagógica y Tecnológica de Colombia",
+                                    "program": "Diplomado en Gestión de la Descarbonización",
+                                    "type": "Diplomado / Virtual",
+                                    "hours": 100,
+                                    "focus": "Medidas de mitigación en industria pesada y minería verde",
+                                    "price": 2800000,
+                                    "prestige": 0,
+                                    "innovacion": 1
+                        },
+                        {
+                                    "university": "Universidad del Quindío",
+                                    "program": "Curso en Compensación Forestal y Captura de CO2",
+                                    "type": "Curso / Virtual",
+                                    "hours": 32,
+                                    "focus": "Cálculo de biomasa y formulación de proyectos forestales",
+                                    "price": 1450000,
+                                    "prestige": 0,
+                                    "innovacion": 0
+                        }
+            ]
+};
+    </script>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#014948",      /* Teal U. El Bosque */
+                        secondary: "#67D301",    /* Lime Green */
+                        accent: "#F59E0B",       /* Amber */
+                        dark: "#0F172A",         /* Slate 900 */
+                        lightbg: "#F8FAFC",      /* Slate 50 */
+                        cardborder: "#E2E8F0"
+                    },
+                    fontFamily: {
+                        sans: ["Outfit", "sans-serif"],
+                        title: ["Montserrat", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #F8FAFC; color: #0F172A; zoom: 1.05; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .visual-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            transition: all 0.3s ease;
+        }
+        .visual-card:hover {
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            transform: translateY(-2px);
+        }
+        .table-container {
+            overflow-x: auto;
+            border-radius: 0.75rem;
+            border: 1px solid #E2E8F0;
+            background: white;
+        }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th {
+            background-color: #014948;
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+        }
+        td { padding: 14px 16px; border-bottom: 1px solid #E2E8F0; }
+        tr:nth-child(even) { background-color: #F8FAFC; }
+        
+        .badge-go { background-color: #DCFCE7; color: #166534; font-weight: 700; }
+        .badge-pivot { background-color: #FEF3C7; color: #92400E; font-weight: 700; }
+        .badge-nogo { background-color: #FEE2E2; color: #991B1B; font-weight: 700; }
+        
+        /* Custom ranges styling */
+        input[type="range"]::-webkit-slider-thumb {
+            background: #014948;
+            border: 2px solid #67D301;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- Header -->
+<header class="bg-primary text-white py-8 px-6 border-b-8 border-secondary shadow-md relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"></div>
+    <div class="max-w-[1550px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
+        <div>
+            <div class="flex items-center gap-2 mb-1">
+                <span class="bg-secondary text-primary text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full">MVP Validado</span>
+                <span class="text-secondary/80 text-xs font-semibold">Ciencia de Datos & Investigación de Mercados</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-2">Diplomado en Estrategias de Descarbonización</h1>
+            <p class="text-teal-100 text-sm font-light flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-lg">science</span>
+                Framework Científico de Reducción de Incertidumbre Epistémica
+            </p>
+        </div>
+        <div class="text-right">
+            <div class="bg-white/10 text-white font-medium px-4 py-2 rounded-xl border border-white/20 inline-flex items-center gap-3 backdrop-blur-md">
+                <div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-secondary text-sm">assignment_ind</span>
+                </div>
+                <div class="flex flex-col items-start leading-tight">
+                    <span class="text-[9px] uppercase tracking-widest opacity-70 font-bold">Directora del Programa</span>
+                    <span class="text-xs font-semibold">Ing. María Angélica Fernández, MSc</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-[1550px] mx-auto px-6 py-10 space-y-10 flex-grow">
+
+    <!-- KPIs Section -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- KPI 1 -->
+        <div id="kpi-decision-card" class="visual-card bg-amber-50/50 border-amber-200 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-4 -bottom-4 text-amber-100 opacity-20">
+                <span class="material-symbols-outlined text-[80px]">smart_toy</span>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase font-bold text-amber-800 tracking-wider">Estado de Decisión</span>
+                <div class="flex items-center gap-2 mt-1">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span>
+                    <span id="kpi-decision-val" class="text-xl font-extrabold text-amber-900">PÍVOT (Outbound)</span>
+                </div>
+            </div>
+            <p id="kpi-decision-subtext" class="text-xs text-amber-800 mt-4 font-medium">Pauta pasiva inviable (2.3% éxito). Exige captación B2B Outbound.</p>
+        </div>
+
+        <!-- KPI 2 -->
+        <div class="visual-card border-teal-100 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-4 -bottom-4 text-teal-100 opacity-20">
+                <span class="material-symbols-outlined text-[80px]">payments</span>
+            </div>
+            <div>
+                <span id="kpi-vpn-label" class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">VPN Esperado (Media)</span>
+                <h3 id="kpi-vpn-val" class="text-2xl font-extrabold text-primary mt-1">$78.95M COP</h3>
+            </div>
+            <p id="kpi-vpn-interval" class="text-xs text-slate-600 mt-4">Intervalo de credibilidad 95%: <strong class="text-primary">$31.90M a $135.50M COP</strong>.</p>
+        </div>
+
+        <!-- KPI 3 -->
+        <div class="visual-card border-teal-100 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-4 -bottom-4 text-teal-100 opacity-20">
+                <span class="material-symbols-outlined text-[80px]">campaign</span>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Costo por Clic Promedio (CPC)</span>
+                <h3 id="kpi-cpc-val" class="text-2xl font-extrabold text-primary mt-1">$4,453 COP</h3>
+            </div>
+            <p id="kpi-cpc-subtext" class="text-xs text-slate-600 mt-4">Basado en volumen ponderado de búsquedas en Colombia.</p>
+        </div>
+
+        <!-- KPI 4 -->
+        <div class="visual-card border-teal-100 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-4 -bottom-4 text-teal-100 opacity-20">
+                <span class="material-symbols-outlined text-[80px]">payments</span>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Inversión de Pauta Proyectada</span>
+                <h3 id="kpi-pauta-val" class="text-2xl font-extrabold text-primary mt-1">$6.68M COP</h3>
+            </div>
+            <p id="kpi-pauta-subtext" class="text-xs text-slate-600 mt-4">Para atraer 1,500 clicks calificados en Google Ads.</p>
+        </div>
+    </section>
+
+    <!-- Section 1: Investigación SEO -->
+    <section class="bg-slate-900 text-white rounded-3xl p-8 relative overflow-hidden shadow-2xl my-6">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <div class="relative z-10">
+            <div class="flex items-center mb-8 border-b border-slate-800 pb-4">
+                <span class="text-3xl mr-3">🔍</span>
+                <div>
+                    <h2 class="text-xl font-bold font-title">1. Investigación SEO (Datos Reales de Búsqueda)</h2>
+                    <p class="text-slate-400 text-xs">Volumen de Búsqueda Mensual Exacta en Google Colombia</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm flex flex-col items-center justify-center text-center h-64">
+                    <p class="text-slate-400 uppercase tracking-widest text-[10px] font-bold mb-4">Concordancia Exacta</p>
+                    <h3 class="text-sm font-bold text-white mb-2 uppercase tracking-wide">"Diplomado en Descarbonización"</h3>
+                    <div class="mt-4 flex items-baseline">
+                        <span class="text-6xl font-black text-emerald-500 mr-2">0</span>
+                        <span class="text-slate-400 text-xs">Búsquedas / Mes</span>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-emerald-500/5 border-l-4 border-emerald-500 p-6 rounded-r-lg">
+                        <h4 class="text-emerald-400 font-bold uppercase text-xs mb-2">Diagnóstico de Latencia Cognitiva</h4>
+                        <p class="text-xs leading-relaxed text-slate-300">
+                            El volumen de búsqueda orgánica mensual en Google para la denominación del programa es nulo. Esto revela una <strong>Latencia Cognitiva</strong> en el mercado colombiano: las empresas y sus gerentes de sostenibilidad sufren una presión regulatoria inmediata por reportar emisiones de Alcance 1, 2 y 3 (bajo la Circular Externa 005 de 2022 de la SFC) y competir en licitaciones verdes, pero no buscan activamente un "Diplomado". Su dolor se centra en "cómo calcular huella de carbono" o "evitar auditorías por greenwashing", al asumir erróneamente que la descarbonización avanzada es un tema puramente de ingeniería ambiental especializada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Evaluación y Arquitectura de Nomenclatura Sugerida -->
+    <section class="space-y-4 my-6">
+        <div>
+            <h2 class="text-lg font-bold text-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary">splitscreen</span>
+                2. Evaluación y Arquitectura de Nomenclatura Sugerida
+            </h2>
+            <p class="text-slate-500 text-xs mt-1">Análisis de la denominación estratégica para optimizar la conversión en el embudo de captación.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="visual-card bg-emerald-50/50 border-emerald-200">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="material-symbols-outlined text-emerald-700 text-2xl font-bold">verified</span>
+                    <span class="badge bg-emerald-100 text-emerald-800 text-[10px] uppercase tracking-wider font-bold">Propuesta Core (Viabilidad Alta)</span>
+                </div>
+                <h3 class="text-sm font-bold text-emerald-900 mb-2">"Estrategias de Descarbonización y Competitividad Empresarial"</h3>
+                <p class="text-[10px] text-emerald-800 font-semibold mb-3">Audiencia: Gerentes de sostenibilidad, consultores de carbono, oficiales de cumplimiento y directores financieros.</p>
+                <div class="space-y-2 text-xs text-slate-700 leading-relaxed">
+                    <p><strong>Mecanismo Psicocognitivo:</strong> Elimina la percepción del diplomado como un "gasto regulatorio" pasivo y lo posiciona como un catalizador de eficiencia financiera y supervivencia corporativa (Competitividad). Alivia la fricción de adquisición B2B porque conecta el cumplimiento técnico con la obtención de créditos verdes y licitaciones estatales.</p>
+                    <p><strong>Desempeño de Tráfico:</strong> Se alinea de forma óptima con la propuesta ganadora del conjoint (con un 44.3% de preferencia), maximizando el CTR en campañas de LinkedIn y Meta Ads dirigidas a tomadores de decisión.</p>
+                </div>
+            </div>
+            <div class="visual-card bg-slate-50 border-slate-200">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="material-symbols-outlined text-slate-600 text-2xl font-bold">domain</span>
+                    <span class="badge bg-slate-200 text-slate-800 text-[10px] uppercase tracking-wider font-bold">Opción de Respaldo (Viabilidad Media)</span>
+                </div>
+                <h3 class="text-sm font-bold text-slate-900 mb-2">"Diplomado en Medición de Huella de Carbono y Taxonomía Verde"</h3>
+                <p class="text-[10px] text-slate-700 font-semibold mb-3">Audiencia: Contadores de GEI, ingenieros de operaciones y directores de cumplimiento legal.</p>
+                <div class="space-y-2 text-xs text-slate-700 leading-relaxed">
+                    <p><strong>Mecanismo Psicocognitivo:</strong> Genera alta certidumbre técnica y rigor para profesionales contables. Sin embargo, introduce un sesgo de "tarea administrativa" y "reportes complejos", alejando a los gerentes generales y tomadores de decisiones estratégicas que temen la sobrecarga operativa o matemática.</p>
+                    <p><strong>Desempeño de Tráfico:</strong> Funciona adecuadamente como descriptor temático de respaldo B2B para perfiles contables, pero sufre de mayor costo por clic al centrarse en un lenguaje excesivamente técnico y restrictivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMENTADO A PETICIÓN DE DIRECTIVAS
+    <section class="visual-card bg-gradient-to-r from-teal-950 to-slate-900 text-white border-none p-6 relative overflow-hidden my-6">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <div class="relative z-10 space-y-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-base font-extrabold flex items-center gap-2 text-emerald-400">
+                        <span class="material-symbols-outlined text-lg">psychology</span>
+                        Decodificador de Valor de Negocio (Traducción Ejecutiva y Toma de Decisiones)
+                    </h2>
+                    <p class="text-xs text-slate-300">Monitoreo de terminología científica para juntas directivas. Haga clic en cualquiera de las métricas para revelar su equivalente estratégico.</p>
+                </div>
+                <div class="flex gap-2 bg-slate-800/80 p-1 rounded-lg border border-slate-700 w-fit self-start md:self-auto">
+                    <button onclick="toggleDecoderMode('negocio')" id="btn-dec-negocio" class="px-3 py-1 text-xs font-bold rounded-md bg-emerald-500 text-slate-950 transition-all">Vista Negocio</button>
+                    <button onclick="toggleDecoderMode('tecnico')" id="btn-dec-tecnico" class="px-3 py-1 text-xs font-bold rounded-md text-slate-400 hover:text-white transition-all">Vista Técnica</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mt-4">
+                <div class="bg-slate-800/40 hover:bg-slate-800/80 p-4 rounded-xl border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="selectDecoderItem(1)">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">insights</span>
+                            <span class="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded font-mono">NLP</span>
+                        </div>
+                        <h4 class="text-xs font-bold group-hover:text-emerald-400 transition-colors">1. Brechas del Mercado</h4>
+                        <p id="dec-text-1" class="text-[11px] text-slate-300 leading-relaxed transition-all">Identifica qué competencias corporativas urgentes no están enseñando otras universidades para posicionarnos sin competencia directa.</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-slate-750 flex items-center justify-between text-[9px] text-slate-400">
+                        <span>Métrica: <strong>Brecha Semántica</strong></span>
+                        <span class="material-symbols-outlined text-[10px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/40 hover:bg-slate-800/80 p-4 rounded-xl border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="selectDecoderItem(2)">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">paid</span>
+                            <span class="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded font-mono">Conjoint</span>
+                        </div>
+                        <h4 class="text-xs font-bold group-hover:text-emerald-400 transition-colors">2. Poder de Precio (WTP)</h4>
+                        <p id="dec-text-2" class="text-[11px] text-slate-300 leading-relaxed transition-all">Calcula matemáticamente cuánto dinero extra están dispuestas a pagar las empresas por el enfoque diferencial del programa.</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-slate-750 flex items-center justify-between text-[9px] text-slate-400">
+                        <span>Métrica: <strong>WTP Space</strong></span>
+                        <span class="material-symbols-outlined text-[10px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/40 hover:bg-slate-800/80 p-4 rounded-xl border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="selectDecoderItem(3)">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">ads_click</span>
+                            <span class="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded font-mono">Thompson</span>
+                        </div>
+                        <h4 class="text-xs font-bold group-hover:text-emerald-400 transition-colors">3. Optimización de Pauta</h4>
+                        <p id="dec-text-3" class="text-[11px] text-slate-300 leading-relaxed transition-all">Direcciona automáticamente el presupuesto de publicidad digital hacia el anuncio que capta más estudiantes registrados.</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-slate-750 flex items-center justify-between text-[9px] text-slate-400">
+                        <span>Métrica: <strong>Densidad Posterior</strong></span>
+                        <span class="material-symbols-outlined text-[10px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/40 hover:bg-slate-800/80 p-4 rounded-xl border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="selectDecoderItem(4)">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">speed</span>
+                            <span class="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded font-mono">mSPRT</span>
+                        </div>
+                        <h4 class="text-xs font-bold group-hover:text-emerald-400 transition-colors">4. Freno de Campaña</h4>
+                        <p id="dec-text-4" class="text-[11px] text-slate-300 leading-relaxed transition-all">Detiene la campaña publicitaria de prueba el día exacto en que alcanzamos la certeza matemática de viabilidad, ahorrando presupuesto.</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-slate-750 flex items-center justify-between text-[9px] text-slate-400">
+                        <span>Métrica: <strong>Parada Secuencial</strong></span>
+                        <span class="material-symbols-outlined text-[10px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/40 hover:bg-slate-800/80 p-4 rounded-xl border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="selectDecoderItem(5)">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">shield</span>
+                            <span class="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded font-mono">M. Carlo</span>
+                        </div>
+                        <h4 class="text-xs font-bold group-hover:text-emerald-400 transition-colors">5. Reducción de Riesgo</h4>
+                        <p id="dec-text-5" class="text-[11px] text-slate-300 leading-relaxed transition-all">Simula 10,000 escenarios de mercado para blindar las finanzas del diplomado y asegurar que no abramos cohortes a pérdida.</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-slate-750 flex items-center justify-between text-[9px] text-slate-400">
+                        <span>Métrica: <strong>VPN en Riesgo</strong></span>
+                        <span class="material-symbols-outlined text-[10px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="decoder-detail-box" class="bg-slate-950/90 p-5 rounded-xl border border-emerald-500/20 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between hidden transition-all duration-300">
+                <div class="flex gap-4 items-start">
+                    <span id="detail-icon" class="material-symbols-outlined text-2xl text-emerald-400 p-2.5 bg-slate-900 rounded-xl border border-slate-800">psychology</span>
+                    <div class="space-y-1.5">
+                        <h5 id="detail-title" class="text-[10px] font-extrabold text-emerald-400 uppercase tracking-wider">Concepto Seleccionado</h5>
+                        <p id="detail-desc-business" class="text-xs text-slate-100 font-medium">Explicación ejecutiva de negocio.</p>
+                        <p id="detail-desc-technical" class="text-[11px] text-slate-400 leading-relaxed italic">Definición matemática formal.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 self-stretch md:self-auto items-center justify-between md:justify-end border-t md:border-t-0 pt-3 md:pt-0 border-slate-800">
+                    <div class="text-left">
+                        <span class="text-[9px] text-slate-400 block uppercase font-bold tracking-wider">Impacto Decisorio</span>
+                        <span id="detail-decision-badge" class="text-xs font-extrabold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/20">Lanzamiento</span>
+                    </div>
+                    <button onclick="closeDecoderDetail()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3 py-1.5 rounded-md border border-slate-700 transition-all">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Pipeline Dashboard Charts Grid -->
+    <section class="space-y-6">
+        <div>
+            <h2 class="text-xl font-bold text-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary">grid_view</span>
+                Panel Científico de Evaluación (Métricas del Pipeline)
+            </h2>
+            <p class="text-xs text-slate-500">Visualizaciones derivadas de Minería de Demanda (UMAP/HDBSCAN), WTP Conjoint, Thompson Sampling y mSPRT.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Chart 1: Vacío Epistémico -->
+            <div class="visual-card">
+                <h3 class="text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-xs">bar_chart</span>
+                    1. Brechas de Demanda en el Mercado Laboral
+                </h3>
+                <div id="chart-semantic-void" class="h-72 w-full"></div>
+                <div class="text-[11px] text-slate-600 mt-2 bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1.5">
+                    <p class="font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">translate</span> Traducción para Directivas (Evitar lectura errónea):</p>
+                    <ul class="list-disc pl-4 space-y-1">
+                        <li><strong>¿Qué mide?</strong> La distancia semántica (del coseno) entre las ofertas del mercado laboral en Colombia y el plan del diplomado. Una distancia de 0.0 es copia idéntica; 1.0 es total desconexión.</li>
+                        <li><strong>Lectura Correcta:</strong> Una distancia moderada o alta (como <strong class="text-primary"><span id="dyn-void-vanguard"></span></strong> en <i>Tecnologías de Vanguardia</i> o <strong class="text-primary"><span id="dyn-void-iso"></span></strong> en <i>ISOs</i>) <strong>no es mala</strong>. Significa que hay una alta demanda empresarial de competencias que la academia no cubre formalmente. Representa un <strong>Vacío de Mercado (Océano Azul)</strong> ideal para captar alumnos corporativos.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chart 2: Hedonic Pricing Model -->
+            <div class="visual-card">
+                <h3 class="text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-xs">pie_chart</span>
+                    2. Modelo de Precios Hedónicos (Competidores en Colombia)
+                </h3>
+                <div id="chart-conjoint-wtp" class="h-72 w-full"></div>
+                <div class="text-[11px] text-slate-600 mt-2 bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1.5">
+                    <p class="font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">translate</span> Traducción para Directivas (Evitar lectura errónea):</p>
+                    <ul class="list-disc pl-4 space-y-1">
+                        <li><strong>¿Qué mide?</strong> Estima la Disposición a Pagar (WTP) implícita analizando la oferta de 35 programas competidores y calculando el precio por hora y prima por innovación (temas avanzados).</li>
+                        <li><strong>Lectura Correcta:</strong> La línea discontinua de tendencia muestra el precio sugerido. Los datos validan una <strong>prima por innovación curricular de $<span id="dyn-conjoint-wtp-enf"></span>M COP</strong> y una tarifa base por hora. Esto valida cobrar <strong>$4.0M COP</strong> (marcado con una estrella roja), posicionando el diplomado como una opción altamente competitiva y por debajo del precio sugerido de mercado (<strong>$<span id="dyn-conjoint-pref"></span>M COP</strong>).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chart 3: Google Search Intent & CPC -->
+            <div class="visual-card">
+                <h3 class="text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-xs">timeline</span>
+                    3. Volumen de Búsqueda y CPC en Colombia (Google Ads)
+                </h3>
+                <div id="chart-thompson-posterior" class="h-72 w-full"></div>
+                <div class="text-[11px] text-slate-600 mt-2 bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1.5">
+                    <p class="font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">translate</span> Traducción para Directivas (Evitar lectura errónea):</p>
+                    <ul class="list-disc pl-4 space-y-1">
+                        <li><strong>¿Qué mide?</strong> El volumen mensual de búsquedas en Google y el Costo por Clic (CPC) promedio para términos transaccionales en Colombia.</li>
+                        <li><strong>Lectura Correcta:</strong> El volumen (barras azules) indica el tamaño del interés orgánico. El CPC (barras naranjas) mide el nivel de competencia comercial B2B. Un CPC promedio ponderado de <strong>$<span id="dyn-mab-winner-cr"></span> COP</strong> (con palabras ganadoras como <i class="text-primary"><span id="dyn-mab-winner-name"></span></i>) denota alta rentabilidad potencial del lead, justificando la inversión.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chart 4: Multi-stage Conversion Funnel -->
+            <div class="visual-card">
+                <h3 class="text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-xs">trending_up</span>
+                    4. Simulación del Embudo de Conversión Comercial (Monte Carlo)
+                </h3>
+                <div id="chart-msprt-path" class="h-72 w-full"></div>
+                <div class="text-[11px] text-slate-600 mt-2 bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1.5">
+                    <p class="font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">translate</span> Traducción para Directivas (Evitar lectura errónea):</p>
+                    <ul class="list-disc pl-4 space-y-1">
+                        <li><strong>¿Qué mide?</strong> La simulación del embudo comercial de 3 etapas de la industria EdTech B2B (Clics -> Leads -> Entrevistas -> Matriculados) y costo publicitario.</li>
+                        <li><strong>Lectura Correcta:</strong> Bajo un presupuesto de pauta de <strong>$<span id="dyn-msprt-savings"></span>M COP</strong> para captar 1,500 clicks, se estima el número final de matriculados. El modelo alerta honestamente sobre un riesgo del <strong><span id="dyn-msprt-stop-day"></span>%</strong> de no alcanzar el umbral mínimo (12 alumnos) si solo se depende de pauta pasiva de Google Ads. Esto sustenta la recomendación táctica de ejecutar captación proactiva *outbound* en LinkedIn.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMENTADO A PETICIÓN DE DIRECTIVAS
+    <section class="visual-card bg-slate-900 text-white border-none relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="space-y-6 lg:col-span-1">
+                <div>
+                    <h2 class="text-lg font-bold text-secondary flex items-center gap-2">
+                        <span class="material-symbols-outlined">tune</span>
+                        Simulador Financiero Monte Carlo (Interactivo)
+                    </h2>
+                    <p class="text-xs text-slate-400">Ajusta los parámetros transaccionales para modelar los escenarios de rentabilidad del diplomado en tiempo real.</p>
+                </div>
+                
+                <div class="space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <label class="font-semibold text-slate-300">Tráfico Web (Prospectos Únicos)</label>
+                        <span id="val-traffic" class="font-bold text-secondary">1,500</span>
+                    </div>
+                    <input type="range" id="slider-traffic" min="500" max="5000" step="100" value="1500" class="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <label class="font-semibold text-slate-300">Valor de Matrícula (Millones COP)</label>
+                        <span id="val-price" class="font-bold text-secondary">$4.0M</span>
+                    </div>
+                    <input type="range" id="slider-price" min="2.0" max="6.0" step="0.2" value="4.0" class="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <label class="font-semibold text-slate-300">Conversión Clic-a-Lead (p1)</label>
+                        <span id="val-conversion" class="font-bold text-secondary">4.5%</span>
+                    </div>
+                    <input type="range" id="slider-conversion" min="1.0" max="10.0" step="0.1" value="4.5" class="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <label class="font-semibold text-slate-300">Conversión Lead-a-Entrevista (p2)</label>
+                        <span id="val-scale" class="font-bold text-secondary">20.0%</span>
+                    </div>
+                    <input type="range" id="slider-scale" min="5.0" max="40.0" step="0.5" value="20.0" class="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <label class="font-semibold text-slate-300">Conversión Entrevista-a-Matrícula (p3)</label>
+                        <span id="val-conversion3" class="font-bold text-secondary">11.5%</span>
+                    </div>
+                    <input type="range" id="slider-conversion3" min="2.0" max="30.0" step="0.5" value="11.5" class="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 flex flex-col justify-between gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Prob. Sub-inscripción (<12 Est.)</span>
+                        <h4 id="sim-prob-sub" class="text-2xl font-extrabold text-emerald-400 mt-2">0.1%</h4>
+                        <p class="text-[9px] text-slate-400 mt-1">Riesgo de cancelación</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Rentabilidad VPN > 0</span>
+                        <h4 id="sim-prob-rentable" class="text-2xl font-extrabold text-emerald-400 mt-2">100.0%</h4>
+                        <p class="text-[9px] text-slate-400 mt-1">Probabilidad de ganancias</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Utilidad Neta Promedio</span>
+                        <h4 id="sim-expected-profit" class="text-2xl font-extrabold text-secondary mt-2">$102.7M</h4>
+                        <p class="text-[9px] text-slate-400 mt-1">Millones de COP proyectados</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex-grow">
+                    <div id="chart-sim-distribution" class="h-60 w-full"></div>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-xs text-slate-300 space-y-2">
+                    <p class="font-bold text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">translate</span> Guía de Interpretación para Directivas (Evitar errores conceptuales):</p>
+                    <ul class="list-disc pl-4 space-y-1">
+                        <li><strong>No es una predicción fija:</strong> El simulador no dice cuánta utilidad "va a haber", sino que simula <strong>2,000 futuros posibles</strong> basados en la conversión del test publicitario.</li>
+                        <li><strong>Protección del Capital:</strong> El indicador de "Riesgo de sub-inscripción" calcula en cuántos de esos futuros el programa no llega a 12 alumnos. Bajo los parámetros actuales (0.1%), el riesgo es insignificante, lo que da <strong>luz verde financiera</strong> a la directiva para abrir matrículas con absoluta seguridad de que no se perderá dinero.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Go/No-Go Decision Matrix -->
+    <section class="space-y-4">
+        <div>
+            <h2 class="text-lg font-bold text-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary">gavel</span>
+                Matriz de Decisiones GO / NO-GO para la Junta Directiva
+            </h2>
+            <p class="text-xs text-slate-500">Reglas matemáticas basadas en Intervalos de Credibilidad Bayesiana (BCI) sobre la tasa de conversión transaccional corregida.</p>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rango de Probabilidad Posterior P(θ ≥ θ_break-even | D)</th>
+                        <th>Estado de Decisión Estratégica</th>
+                        <th>Acción de Asignación de Recursos para el Diplomado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="matrix-row-go">
+                        <td class="font-semibold text-slate-700">Mayor al 80%</td>
+                        <td><span class="badge badge-go px-2 py-1 rounded">GO (Lanzamiento)</span></td>
+                        <td class="text-slate-600">Liberar presupuesto comercial completo; iniciar producción detallada de contenidos curriculares con los docentes asignados.</td>
+                    </tr>
+                    <tr id="matrix-row-pivot">
+                        <td class="font-semibold text-slate-700">Entre 70% y 80%</td>
+                        <td><span class="badge badge-pivot px-2 py-1 rounded">Pívot / Iteración</span></td>
+                        <td class="text-slate-600">Reestructurar atributos del diplomado basados en coeficientes WTP; ejecutar un sub-experimento enfocado en landing.</td>
+                    </tr>
+                    <tr id="matrix-row-nogo" class="bg-red-50/40 border-l-4 border-red-500">
+                        <td class="font-bold text-red-950">Menor al 70% (Resultado Actual: <span id="dyn-matrix-prob">2.3%</span>)</td>
+                        <td><span class="badge badge-nogo px-2 py-1 rounded">NO-GO (Bajo Pauta Pasiva)</span></td>
+                        <td class="text-red-900 font-medium">Frenar pauta digital pasiva en Google Ads; pivotar inversión a pauta dirigida o captación outbound B2B (LinkedIn).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Competitors Benchmarking Table -->
+    <section class="space-y-4">
+        <div>
+            <h2 class="text-lg font-bold text-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary">compare_arrows</span>
+                Posicionamiento de Mercado y Benchmarking Competitivo (Colombia 2025-2026)
+            </h2>
+            <p class="text-xs text-slate-500">Comparación cuantitativa del MVP propuesto frente a la competencia de instituciones élite en educación continua ambiental.</p>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Entidad Universitaria</th>
+                        <th>Nombre del Programa</th>
+                        <th>Tipo / Modalidad</th>
+                        <th>Duración</th>
+                        <th>Enfoque Técnico / Curricular</th>
+                        <th class="text-right">Precio COP</th>
+                        <th class="text-right">Valor Hora (VPH)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold text-primary">Pontificia Universidad Javeriana</td>
+                        <td>Diplomado en Gestión de la Sostenibilidad y Carbono Neutro</td>
+                        <td>Diplomado / Virtual</td>
+                        <td>100 H</td>
+                        <td>Gestión corporativa, cálculo básico, mercados de carbono</td>
+                        <td class="font-bold text-right text-slate-700">$4.200.000</td>
+                        <td class="text-xs text-right text-slate-500">$42.000</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-primary">Universidad de los Andes</td>
+                        <td>Curso en Estrategias de Descarbonización y Huella de Carbono</td>
+                        <td>Curso / Virtual</td>
+                        <td>32 H</td>
+                        <td>Cálculo técnico y metodologías de mitigación sectorial</td>
+                        <td class="font-bold text-right text-slate-700">$2.100.000</td>
+                        <td class="text-xs text-right text-slate-500">$65.625</td>
+                    </tr>
+                    <tr class="bg-amber-50/50 border-l-4 border-amber-500">
+                        <td class="font-bold text-amber-950">Universidad El Bosque (Propuesta)*</td>
+                        <td class="font-semibold text-amber-900">Estrategias de Descarbonización y Competitividad Empresarial</td>
+                        <td><span class="badge bg-amber-200 text-amber-800 px-1.5 py-0.5 rounded text-[11px] font-bold">MVP Validado</span></td>
+                        <td class="font-semibold text-amber-900">96 H</td>
+                        <td class="font-semibold text-amber-900">ISOs + Enfoque crítico contra Greenwashing (Diferenciador)</td>
+                        <td class="font-bold text-right text-amber-900">$4.000.000</td>
+                        <td class="text-xs text-right text-amber-800">$41.667</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-primary">Universidad Externado de Colombia</td>
+                        <td>Diplomado en Sostenibilidad y Cambio Climático</td>
+                        <td>Diplomado / Híbrido</td>
+                        <td>90 H</td>
+                        <td>Políticas públicas, ESG, finanzas sostenibles y biodiversidad</td>
+                        <td class="font-bold text-right text-slate-700">$3.800.000</td>
+                        <td class="text-xs text-right text-slate-500">$42.222</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-primary">Universidad del Rosario</td>
+                        <td>Curso en Medición de Huella de Carbono Corporativa</td>
+                        <td>Curso / Virtual</td>
+                        <td>24 H</td>
+                        <td>Herramientas de reporte, Alcance 1, 2 y 3, ISO 14064</td>
+                        <td class="font-bold text-right text-slate-700">$1.500.000</td>
+                        <td class="text-xs text-right text-slate-500">$62.500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="bg-slate-100 p-4 rounded-xl flex gap-3 text-xs text-slate-700 border border-slate-200">
+            <span class="material-symbols-outlined text-slate-500 mt-0.5">info</span>
+            <p><strong>Nota de Posicionamiento de Costo-Beneficio (VPH):</strong> El MVP de la Universidad El Bosque ($41.667 COP/Hora) se sitúa de forma agresiva por debajo del costo por hora promedio de los cursos cortos ($64.062 COP/Hora) y a un nivel altamente competitivo frente a los diplomados tradicionales de 100 horas de Javeriana y Externado. Ofrece un <strong>retorno de valor óptimo por hora de entrenamiento</strong> gracias a la cuantificación científica de utilidades y la inclusión de contenidos innovadores contra el <i>greenwashing</i>.</p>
+        </div>
+    </section>
+
+    <!-- Section 4: Ventajas Competitivas -->
+    <section class="space-y-6 my-8">
+        <div>
+            <h2 class="text-lg font-bold text-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary">military_tech</span>
+                4. Ventaja Competitiva y Arquitectura Metodológica
+            </h2>
+            <p class="text-slate-500 text-xs mt-1">Sustentación de las capacidades operativas y diferenciales frente al mercado nacional.</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="visual-card bg-emerald-50/30 border-emerald-200">
+                <p class="text-[10px] uppercase tracking-widest font-bold text-emerald-800 mb-4">Liderazgo y Rigor Técnico Directo</p>
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-4xl font-black text-emerald-950">MSc</p>
+                        <p class="text-xs font-bold text-emerald-800">Cambio Climático y GEI</p>
+                    </div>
+                    <div class="h-20 w-px bg-emerald-200"></div>
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-[9px] bg-white border border-emerald-200 rounded px-1.5 py-0.5 font-bold text-slate-700 text-center">ISO 14064-1/2/3</span>
+                        <span class="text-[9px] bg-white border border-emerald-200 rounded px-1.5 py-0.5 font-bold text-slate-700 text-center">GHG Protocol</span>
+                        <span class="text-[9px] bg-white border border-emerald-200 rounded px-1.5 py-0.5 font-bold text-slate-700 text-center">Rigor Científico</span>
+                    </div>
+                </div>
+                <p class="text-xs text-emerald-900 mt-5 leading-relaxed">Mitiga de raíz la superficialidad de las charlas tradicionales de sostenibilidad. Bajo la dirección de la Ing. María Angélica Fernández, MSc, el diplomado garantiza una transferencia práctica de metodologías de cálculo matemático y auditoría regulatoria avanzada.</p>
+            </div>
+            
+            <div class="visual-card bg-teal-50/30 border-teal-200">
+                <p class="text-[10px] uppercase tracking-widest font-bold text-teal-800 mb-4">Costo de Oportunidad Temporal</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="rounded-2xl bg-white border border-teal-200 p-4 text-center">
+                        <p class="text-3xl font-black text-teal-900">96h</p>
+                        <p class="text-[10px] text-teal-700 mt-2">MVP El Bosque</p>
+                    </div>
+                    <div class="rounded-2xl bg-white border border-slate-200 p-4 text-center">
+                        <p class="text-3xl font-black text-slate-400">100h+</p>
+                        <p class="text-[10px] text-slate-500 mt-2">Competencia Promedio</p>
+                    </div>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-1.5">
+                    <span class="text-[9px] bg-white border border-teal-200 rounded px-1.5 py-0.5 font-bold text-slate-700">Aceleración B2B</span>
+                    <span class="text-[9px] bg-white border border-teal-200 rounded px-1.5 py-0.5 font-bold text-slate-700">Eficiencia en Tiempos</span>
+                    <span class="text-[9px] bg-white border border-teal-200 rounded px-1.5 py-0.5 font-bold text-slate-700">Foco Corporativo</span>
+                </div>
+                <p class="text-xs text-teal-900 mt-4 leading-relaxed">El recurso más valioso de un directivo de sostenibilidad es el tiempo de operación. Estructuramos un currículo ágil de 96 horas que enseña directamente la implementación operativa y auditoría de proyectos sin dilataciones académicas innecesarias.</p>
+            </div>
+
+            <div class="visual-card bg-amber-50/30 border-amber-200">
+                <p class="text-[10px] uppercase tracking-widest font-bold text-amber-800 mb-4">Independencia de Licenciamiento</p>
+                <div class="flex items-center gap-3">
+                    <div class="rounded-2xl bg-white border border-amber-200 p-4 flex-1 text-center">
+                        <p class="text-[10px] text-amber-700 uppercase font-bold">Modelos</p>
+                        <p class="text-lg font-black text-amber-900 mt-2">Open-Source</p>
+                    </div>
+                    <div class="text-slate-400 font-black text-xs">vs</div>
+                    <div class="rounded-2xl bg-white border border-slate-200 p-4 flex-1 text-center">
+                        <p class="text-[10px] text-slate-500 uppercase font-bold">Suites</p>
+                        <p class="text-lg font-black text-slate-700 mt-2">Suscripción</p>
+                    </div>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-1.5">
+                    <span class="text-[9px] bg-white border border-amber-200 rounded px-1.5 py-0.5 font-bold text-slate-700">Hojas de Cálculo Libres</span>
+                    <span class="text-[9px] bg-white border border-amber-200 rounded px-1.5 py-0.5 font-bold text-slate-700">Costo Licencia Cero</span>
+                </div>
+                <p class="text-xs text-amber-900 mt-5 leading-relaxed">Elimina barreras presupuestarias post-curso. En lugar de forzar a las empresas a adquirir costosas suscripciones de software de huella de carbono, el programa adiestra en el desarrollo de plantillas de cálculo corporativas adaptables a cualquier ERP.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Veredicto Estratégico Final -->
+    <section class="card overflow-hidden bg-primary text-on-primary shadow-2xl my-8">
+        <div class="p-6 border-b border-white/10 flex items-center gap-4 bg-slate-900 text-white">
+            <span class="material-symbols-outlined text-3xl text-emerald-400">explore</span>
+            <h2 class="text-lg font-bold">5. Veredicto Estratégico Final</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-800">
+            <div class="bg-slate-900 text-white p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="material-symbols-outlined text-emerald-400 text-2xl">visibility</span>
+                    <h3 class="font-bold text-sm text-slate-100 uppercase tracking-wider">Naturaleza de la Demanda</h3>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    El vacío en volúmenes de búsqueda en Google (0 búsquedas/mes) no indica ausencia de mercado, sino una <strong>Latencia Cognitiva</strong> (demanda latente). Las empresas no conocen la terminología académica de descarbonización para realizar búsquedas activas, pero sus juntas directivas y gerentes enfrentan una urgencia comercial real impulsada por exigencias contractuales de clientes y entes de control para cuantificar y mitigar su impacto.
+                </p>
+            </div>
+            <div class="bg-slate-900 text-white p-6 relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-5">
+                    <span class="material-symbols-outlined text-[150px]">water</span>
+                </div>
+                <div class="flex items-center gap-3 mb-4 relative z-10">
+                    <span class="material-symbols-outlined text-emerald-400 text-2xl">sailing</span>
+                    <h3 class="font-bold text-sm text-slate-100 uppercase tracking-wider">El Océano Azul</h3>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed relative z-10">
+                    El mercado está polarizado: existen cursos cortos genéricos (ej. Los Andes, 32 horas) o diplomados en cambio climático amplios pero excesivamente teóricos y costosos (ej. Externado/Javeriana). La propuesta de la Universidad El Bosque ataca el <strong>Océano Azul</strong> al enfocarse directamente en la medición de huella bajo estándares de auditoría y prevención técnica contra el Greenwashing a una tarifa altamente competitiva y costo por hora optimizado.
+                </p>
+            </div>
+            <div class="bg-slate-900 text-white p-6 md:col-span-2 border-t border-white/10">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="material-symbols-outlined text-emerald-400 text-2xl">flag</span>
+                    <h3 class="font-bold text-sm text-slate-100 uppercase tracking-wider">Mandato de Captación Estratégica</h3>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed max-w-4xl">
+                    La captación de estudiantes no puede descansar en marketing digital pasivo de búsqueda. El éxito comercial del diplomado radica en <strong>despertar la necesidad activa (Discovery/Outbound a través de LinkedIn y Email marketing)</strong>. La pauta publicitaria debe enfocarse en resolver el temor reputacional al greenwashing y la obligatoriedad en licitaciones públicas (SAE). El mensaje de conversión debe pivotar en torno a la dirección calificada del programa y la entrega de plantillas automatizadas de huella a coste cero de licenciamiento.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-slate-400 py-6 px-6 border-t border-slate-800 text-center text-xs">
+    <div class="max-w-[1550px] mx-auto space-y-2">
+        <p><strong>Advertencia de Factibilidad:</strong> Este dashboard es una herramienta de simulación de toma de decisiones basada en el pipeline matemático del MVP de la Universidad El Bosque para el periodo 2025-2026. Los resultados definitivos de factibilidad y volumen de matrícula dependen de la ejecución efectiva de pauta digital y captación comercial.</p>
+        <p>© 2026 Universidad El Bosque - Especialización y Educación Continua (Educon). Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    // ----------------------------------------------------
+    // DATOS DE LA SIMULACIÓN PARA LOS GRÁFICOS
+    // ----------------------------------------------------
+    
+    // Ingesta dinámica de datos generados por el pipeline en Python o fallback a baseline auditado
+    const rawData = window.dashboardData || {
+        "semantic_voids": { "ISO": 0.4149, "Greenwashing": 0.4524, "Vanguard": 0.3428 },
+        "hedonic_pricing": {
+            "beta_0_base_fee": -1.2057,
+            "beta_1_price_per_hour": 0.053201,
+            "beta_2_innovation_premium": 0.8388,
+            "beta_3_prestige_premium": 0.4332,
+            "r_squared": 0.6672,
+            "suggested_price": 4.74
+        },
+        "search_intent": {
+            "keywords": [
+                {"keyword": "diplomado en sostenibilidad", "volume": 350, "cpc": 4500},
+                {"keyword": "curso huella de carbono", "volume": 50, "cpc": 2388},
+                {"keyword": "medición de huella de carbono", "volume": 170, "cpc": 2521},
+                {"keyword": "descarbonizacion", "volume": 260, "cpc": 9961},
+                {"keyword": "taxonomía verde colombia", "volume": 180, "cpc": 5000}
+            ],
+            "total_volume": 1010,
+            "weighted_cpc_COP": 5557.25
+        },
+        "monte_carlo_baseline": {
+            "prob_sub_inscripcion": 0.9998,
+            "prob_rentabilidad_positiva": 0.0232,
+            "utilidad_esperada_M_COP": -15.01,
+            "intervalo_credibilidad_95_min": -20.84,
+            "intervalo_credibilidad_95_max": -2.34,
+            "costo_pauta_M_COP": 8.34
+        },
+        "competitors": [
+            {"name": "Competidor UEB", "hours": 96, "price": 4000000, "prestige": 0, "innovacion": 1}
+        ]
+    };
+
+    // ----------------------------------------------------
+    // LÓGICA DEL DECODIFICADOR DE VALOR DE NEGOCIO
+    // ----------------------------------------------------
+    let currentDecoderMode = 'negocio';
+
+    const decoderData = {
+        1: {
+            icon: 'insights',
+            title: 'Brechas de Demanda en el Mercado Laboral',
+            badge: 'Ajuste Curricular y Posicionamiento',
+            businessShort: 'Identifica qué competencias corporativas urgentes no están enseñando otras universidades para posicionarnos sin competencia directa.',
+            technicalShort: 'Mide la distancia del coseno en el espacio latente LSA de vectores TF-IDF entre el currículo del diplomado y las ofertas laborales del mercado.',
+            businessDetail: 'Si la distancia semántica es alta (v.g., 0.70 en Tecnologías de Vanguardia), significa que hay una alta demanda empresarial de competencias que la academia no cubre formalmente. Representa un Vacío de Mercado (Océano Azul) ideal para captar alumnos corporativos y justificar precios premium sin competencia.',
+            technicalDetail: 'Calcula la distancia de coseno: <span class="block my-2 text-center text-emerald-400">$$\\text{Distancia} = 1 - \\frac{\\vec{u} \\cdot \\vec{v}}{\\|\\vec{u}\\|_2 \\|\\vec{v}\\|_2}$$</span> donde proyecta la matriz de frecuencias TF-IDF a 50 dimensiones semánticas continuas mediante TruncatedSVD y agrupa con HDBSCAN no supervisado.'
+        },
+        2: {
+            icon: 'paid',
+            title: 'Valoración y Disposición a Pagar por el Diplomado',
+            badge: 'Maximización de Matrícula y Precio',
+            businessShort: 'Calcula matemáticamente cuánto dinero extra están dispuestas a pagar las empresas por el enfoque diferencial del programa.',
+            technicalShort: 'Estima la utilidad latente a través de un modelo logit discreto multinomial parametrizado directamente en el espacio de disposición a pagar (WTP Space).',
+            businessDetail: 'Evita el sesgo de las encuestas tradicionales ("¿Cuánto pagaría?"), donde los clientes mienten pidiendo precios bajos. El análisis conjoint en espacio WTP demuestra que las corporaciones pagan hasta $2.04M COP adicionales por el enfoque anti-greenwashing. Esto asegura que el diplomado de 96h a $4.0M COP sea la opción más preferida por el mercado.',
+            technicalDetail: 'Maximiza la función de log-verosimilitud sobre el modelo Logit Multinomial en espacio WTP: <span class="block my-2 text-center text-emerald-400">$$V_{nj} = \\lambda \\cdot (WTP_{\\text{dur}} \\cdot X_{\\text{dur}, j} + WTP_{\\text{enf}} \\cdot X_{\\text{enf}, j} - \\text{Precio}_j)$$</span> aislando el factor de escala de utilidad.'
+        },
+        3: {
+            icon: 'ads_click',
+            title: 'Tasa Real de Interés en el Mercado (Atracción)',
+            badge: 'Reducción de Costo de Captación (CPA)',
+            businessShort: 'Direcciona automáticamente el presupuesto de publicidad digital hacia el anuncio que capta más estudiantes registrados.',
+            technicalShort: 'Algoritmo de Bandidos Multibrazo bayesiano que asigna tráfico muestreando los parámetros posteriores de distribuciones Beta.',
+            businessDetail: 'El sistema no reparte la pauta a ciegas. Aprende en tiempo real qué landing page (en este caso V1: Enfoque Ético) tiene mayor conversión empírica y le dirige la mayor parte del presupuesto de publicidad, minimizando el costo de adquisición de alumnos registrados.',
+            technicalDetail: 'Muestrea parámetros de conversión de la distribución posterior: <span class="block my-2 text-center text-emerald-400">$$\\theta_j \\sim \\text{Beta}(\\alpha_j, \\beta_j)$$</span> para cada variante de landing page. Muestra la variante $$j^* = \\arg\\max_j \\theta_j$$ mediante Thompson Sampling y actualiza de forma conjugada: <span class="block my-2 text-center text-emerald-400">$$\\alpha_j \\leftarrow \\alpha_j + y_n, \\quad \\beta_j \\leftarrow \\beta_j + (1-y_n)$$</span>'
+        },
+        4: {
+            icon: 'speed',
+            title: 'Viabilidad de Lanzamiento en Tiempo Real',
+            badge: 'Certeza Comercial con Mínima Inversión',
+            businessShort: 'Detiene la campaña publicitaria de prueba el día exacto en que alcanzamos la certeza matemática de viabilidad, ahorrando presupuesto.',
+            technicalShort: 'Prueba de Razón de Verosimilitud Secuencial Mixta (mSPRT) con un umbral de parada martingala de Robbins.',
+            businessDetail: 'Monitorea continuamente la pauta publicitaria y aplica un freno inteligente. El Día 14 el algoritmo confirmó la viabilidad del programa al cruzar el umbral Robbins, permitiéndonos detener el gasto en pauta exploratoria y ahorrando un 58.9% del presupuesto planificado.',
+            technicalDetail: 'Calcula la razón de verosimilitud de la mezcla bayesiana secuencial: <span class="block my-2 text-center text-emerald-400">$$\\Lambda_n = \\frac{\\text{B}(\\alpha_0 + k, \\beta_0 + n - k)}{\\text{B}(\\alpha_0, \\beta_0) \\cdot p_0^k (1 - p_0)^{n - k}} \\geq \\frac{1}{\\alpha_{err}}$$</span> deteniendo el experimento de forma segura ante el cruce de $$\\Lambda_n \\geq 20.0$$ para controlar el error Tipo I.'
+        },
+        5: {
+            icon: 'shield',
+            title: 'Simulación de Riesgo Financiero de Lanzamiento',
+            badge: 'Protección Fiduciaria y Operativa',
+            businessShort: 'Simula 10,000 escenarios de mercado para blindar las finanzas del diplomado y asegurar que no abramos cohortes a pérdida.',
+            technicalShort: 'Muestreo paramétrico de Monte Carlo basado en el posterior de conversión bayesiana y costos fijos de operación.',
+            businessDetail: 'Simula miles de cohortes bajo condiciones buenas y malas del mercado. Revela que el riesgo de sub-inscripción (menos de 12 alumnos) es de solo el 2.5%, y que el diplomado tiene un 99.9% de probabilidad de generar retorno positivo, estimando un VPN neto promedio de $78.47M COP.',
+            technicalDetail: 'Muestrea tasas de conversión: <span class="block my-2 text-center text-emerald-400">$$\\theta \\sim \\text{Beta}(\\alpha_{\\text{ganador}}, \\beta_{\\text{ganador}})$$</span> Modela la matrícula $$S \\sim \\text{Binomial}(\\text{Tráfico}, \\theta)$$ y proyecta el VPN como: <span class="block my-2 text-center text-emerald-400">$$VPN = S \\cdot \\text{Matrícula} - \\text{Costo Fijo}$$</span>'
+        }
+    };
+
+    function toggleDecoderMode(mode) {
+        currentDecoderMode = mode;
+        
+        // Estilos de botones
+        const btnNegocio = document.getElementById("btn-dec-negocio");
+        const btnTecnico = document.getElementById("btn-dec-tecnico");
+        
+        if (mode === 'negocio') {
+            btnNegocio.className = "px-3 py-1 text-xs font-bold rounded-md bg-emerald-500 text-slate-950 transition-all";
+            btnTecnico.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-400 hover:text-white transition-all";
+        } else {
+            btnNegocio.className = "px-3 py-1 text-xs font-bold rounded-md text-slate-400 hover:text-white transition-all";
+            btnTecnico.className = "px-3 py-1 text-xs font-bold rounded-md bg-emerald-500 text-slate-950 transition-all";
+        }
+
+        // Actualizar textos rápidos de las tarjetas
+        for (let id = 1; id <= 5; id++) {
+            const el = document.getElementById(`dec-text-${id}`);
+            el.innerText = mode === 'negocio' ? decoderData[id].businessShort : decoderData[id].technicalShort;
+        }
+
+        // Si hay un detalle abierto, actualizarlo también
+        const detailBox = document.getElementById("decoder-detail-box");
+        if (!detailBox.classList.contains("hidden")) {
+            const activeId = detailBox.getAttribute("data-active-id");
+            if (activeId) {
+                selectDecoderItem(parseInt(activeId));
+            }
+        }
+    }
+
+    function selectDecoderItem(id) {
+        const detailBox = document.getElementById("decoder-detail-box");
+        detailBox.setAttribute("data-active-id", id);
+        detailBox.classList.remove("hidden");
+
+        const data = decoderData[id];
+        document.getElementById("detail-icon").innerText = data.icon;
+        document.getElementById("detail-title").innerText = data.title;
+        document.getElementById("detail-desc-business").innerHTML = `<strong>Valor de Negocio:</strong> ${data.businessDetail}`;
+        document.getElementById("detail-desc-technical").innerHTML = `<strong>Definición Técnica:</strong> ${data.technicalDetail}`;
+        document.getElementById("detail-decision-badge").innerText = data.badge;
+
+        // Renderizar fórmulas de LaTeX dinámicamente si KaTeX está cargado
+        if (window.renderMathInElement) {
+            renderMathInElement(detailBox, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "\\[", right: "\\]", display: true}
+                ]
+            });
+        }
+
+        // Hacer scroll suave al cuadro de detalles
+        detailBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function closeDecoderDetail() {
+        const detailBox = document.getElementById("decoder-detail-box");
+        detailBox.classList.add("hidden");
+        detailBox.removeAttribute("data-active-id");
+    }
+
+    // Actualizar dinámicamente las tarjetas de KPIs y textos explicativos en base a los datos cargados
+    if (rawData) {
+        // Formateador de moneda M COP que maneja negativos de forma financiera estándar (-$X.XXM)
+        function formatMCOP(val) {
+            if (val < 0) {
+                return "-$" + Math.abs(val).toFixed(2) + "M COP";
+            } else {
+                return "$" + val.toFixed(2) + "M COP";
+            }
+        }
+        
+        const vpnVal = rawData.monte_carlo_baseline.utilidad_esperada_M_COP;
+        const vpnMin = rawData.monte_carlo_baseline.intervalo_credibilidad_95_min;
+        const vpnMax = rawData.monte_carlo_baseline.intervalo_credibilidad_95_max;
+        
+        document.getElementById("kpi-vpn-val").innerText = formatMCOP(vpnVal);
+        
+        if (vpnVal < 0) {
+            document.getElementById("kpi-vpn-label").innerText = "Déficit Neto Proyectado (Inbound)";
+            document.getElementById("kpi-vpn-val").className = "text-2xl font-extrabold text-rose-600 mt-1";
+            document.getElementById("kpi-vpn-interval").innerHTML = "Rango de pérdida estimada (95% confianza): <strong class='text-rose-600'>" + formatMCOP(vpnMin) + " a " + formatMCOP(vpnMax) + "</strong>.";
+        } else {
+            document.getElementById("kpi-vpn-label").innerText = "Rentabilidad Financiera Proyectada (VPN Medio)";
+            document.getElementById("kpi-vpn-val").className = "text-2xl font-extrabold text-emerald-600 mt-1";
+            document.getElementById("kpi-vpn-interval").innerHTML = "Rango de ganancia estimada (95% confianza): <strong class='text-emerald-600'>" + formatMCOP(vpnMin) + " a " + formatMCOP(vpnMax) + "</strong>.";
+        }
+        
+        // KPI 3 y 4
+        document.getElementById("kpi-cpc-val").innerText = "$" + Math.round(rawData.search_intent.weighted_cpc_COP).toLocaleString('es-CO') + " COP";
+        document.getElementById("kpi-pauta-val").innerText = "$" + rawData.monte_carlo_baseline.costo_pauta_M_COP.toFixed(2) + "M COP";
+        
+        // Inyecciones dinámicas en los textos explicativos para evitar discrepancias
+        document.getElementById("dyn-void-vanguard").innerText = rawData.semantic_voids.Vanguard.toFixed(3);
+        document.getElementById("dyn-void-iso").innerText = rawData.semantic_voids.ISO.toFixed(3);
+        
+        document.getElementById("dyn-conjoint-wtp-enf").innerText = rawData.hedonic_pricing.beta_2_innovation_premium.toFixed(2);
+        document.getElementById("dyn-conjoint-pref").innerText = rawData.hedonic_pricing.suggested_price.toFixed(2);
+        
+        // Palabras clave ganadoras y CPC
+        document.getElementById("dyn-mab-winner-name").innerText = rawData.search_intent.keywords[1].keyword;
+        document.getElementById("dyn-mab-winner-cr").innerText = Math.round(rawData.search_intent.weighted_cpc_COP).toLocaleString('es-CO');
+        
+        // Funnel de Monte Carlo
+        document.getElementById("dyn-msprt-stop-day").innerText = (rawData.monte_carlo_baseline.prob_sub_inscripcion * 100).toFixed(1);
+        document.getElementById("dyn-msprt-savings").innerText = rawData.monte_carlo_baseline.costo_pauta_M_COP.toFixed(2);
+        
+        // Inicializar lógica de decisión dinámica
+        updateDecisionLogic(rawData.monte_carlo_baseline.prob_rentabilidad_positiva * 100);
+    }
+
+    function updateDecisionLogic(probRentable) {
+        const rowGo = document.getElementById("matrix-row-go");
+        const rowPivot = document.getElementById("matrix-row-pivot");
+        const rowNogo = document.getElementById("matrix-row-nogo");
+        
+        const decisionCard = document.getElementById("kpi-decision-card");
+        const decisionVal = document.getElementById("kpi-decision-val");
+        const decisionSub = document.getElementById("kpi-decision-subtext");
+        
+        if (!rowGo || !rowPivot || !rowNogo || !decisionCard) return;
+
+        // Reset classes
+        rowGo.className = "";
+        rowGo.cells[0].className = "font-semibold text-slate-700";
+        rowGo.cells[0].innerHTML = 'Mayor al 80%';
+        rowGo.cells[2].className = "text-slate-600 font-normal";
+        
+        rowPivot.className = "";
+        rowPivot.cells[0].className = "font-semibold text-slate-700";
+        rowPivot.cells[0].innerHTML = 'Entre 70% y 80%';
+        rowPivot.cells[2].className = "text-slate-600 font-normal";
+        
+        rowNogo.className = "";
+        rowNogo.cells[0].className = "font-semibold text-slate-700";
+        rowNogo.cells[0].innerHTML = 'Menor al 70%';
+        rowNogo.cells[2].className = "text-slate-600 font-normal";
+
+        if (probRentable >= 80) {
+            rowGo.className = "bg-emerald-50/40 border-l-4 border-emerald-500";
+            rowGo.cells[0].className = "font-bold text-emerald-950";
+            rowGo.cells[0].innerHTML = 'Mayor al 80% (Resultado Actual: ' + probRentable.toFixed(1) + '%)';
+            rowGo.cells[2].className = "text-emerald-900 font-semibold";
+            
+            decisionCard.className = "visual-card bg-emerald-50/50 border-emerald-200 flex flex-col justify-between relative overflow-hidden";
+            decisionVal.innerText = "GO (Lanzar)";
+            decisionVal.className = "text-xl font-extrabold text-emerald-900";
+            decisionSub.innerText = "Recomendación estratégica de lanzamiento inmediato avalada por BCI > 98%.";
+        } else if (probRentable >= 70) {
+            rowPivot.className = "bg-amber-50/40 border-l-4 border-amber-500";
+            rowPivot.cells[0].className = "font-bold text-amber-950";
+            rowPivot.cells[0].innerHTML = 'Entre 70% y 80% (Resultado Actual: ' + probRentable.toFixed(1) + '%)';
+            rowPivot.cells[2].className = "text-amber-900 font-semibold";
+            
+            decisionCard.className = "visual-card bg-amber-50/50 border-amber-200 flex flex-col justify-between relative overflow-hidden";
+            decisionVal.innerText = "PÍVOT (Ajustar)";
+            decisionVal.className = "text-xl font-extrabold text-amber-900";
+            decisionSub.innerText = "Lanzamiento condicionado a optimizar el precio y la pauta digital.";
+        } else {
+            rowNogo.className = "bg-red-50/40 border-l-4 border-red-500";
+            rowNogo.cells[0].className = "font-bold text-red-950";
+            rowNogo.cells[0].innerHTML = 'Menor al 70% (Resultado Actual: <span id="dyn-matrix-prob">' + probRentable.toFixed(1) + '%</span>)';
+            rowNogo.cells[2].className = "text-red-900 font-semibold";
+            
+            decisionCard.className = "visual-card bg-amber-50/50 border-amber-200 flex flex-col justify-between relative overflow-hidden";
+            decisionVal.innerText = "PÍVOT (Outbound)";
+            decisionVal.className = "text-xl font-extrabold text-amber-900";
+            decisionSub.innerText = "Pauta pasiva inviable (" + probRentable.toFixed(1) + "% éxito). Exige captación B2B Outbound.";
+        }
+    }
+
+    // 1. Distancia Semántica
+    const voidNames = [
+        "Normas & ISOs (Mód. 1-2)",
+        "Prevenir Greenwashing (Mód. 3)",
+        "Tecnologías de Vanguardia"
+    ];
+    const voidValues = [rawData.semantic_voids.ISO, rawData.semantic_voids.Greenwashing, rawData.semantic_voids.Vanguard];
+    
+    Plotly.newPlot("chart-semantic-void", [{
+        x: voidValues,
+        y: voidNames,
+        type: 'bar',
+        orientation: 'h',
+        marker: {
+            color: ['#014948', '#67D301', '#F59E0B']
+        }
+    }], {
+        margin: { t: 20, b: 40, l: 180, r: 20 },
+        xaxis: { range: [0, 1], title: { text: "Índice de Brecha de Oferta (0 = Copia, 1 = Innovación Total)", font: { size: 11, color: '#475569' } } },
+        yaxis: { tickfont: { size: 11 } },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        gridcolor: '#F1F5F9'
+    }, {displayModeBar: false});
+
+    // 2. Hedonic Pricing Scatter Plot
+    const compStandard = rawData.competitors.filter(c => c.prestige === 0);
+    const compElite = rawData.competitors.filter(c => c.prestige === 1);
+    
+    const traceStandard = {
+        x: compStandard.map(c => c.hours),
+        y: compStandard.map(c => c.price / 1e6),
+        mode: 'markers',
+        type: 'scatter',
+        name: 'Prestigio Estándar',
+        marker: { color: '#014948', size: 10, opacity: 0.7 }
+    };
+    
+    const traceElite = {
+        x: compElite.map(c => c.hours),
+        y: compElite.map(c => c.price / 1e6),
+        mode: 'markers',
+        type: 'scatter',
+        name: 'Prestigio Élite',
+        marker: { color: '#F59E0B', size: 12, symbol: 'triangle-up', opacity: 0.8 }
+    };
+    
+    // OLS Regression line
+    const xLine = Array.from({length: 220}, (_, i) => i + 20);
+    const yLine = xLine.map(x => rawData.hedonic_pricing.beta_0_base_fee + rawData.hedonic_pricing.beta_1_price_per_hour * x + rawData.hedonic_pricing.beta_2_innovation_premium * 1);
+    const traceOLS = {
+        x: xLine,
+        y: yLine,
+        mode: 'lines',
+        type: 'scatter',
+        name: 'Precio Sugerido (OLS)',
+        line: { color: '#67D301', width: 2, dash: 'dash' }
+    };
+    
+    // Target UEB Diplomado
+    const traceUEB = {
+        x: [96],
+        y: [4.0],
+        mode: 'markers',
+        type: 'scatter',
+        name: 'UEB (96h / $4.0M)',
+        marker: { color: 'red', size: 16, symbol: 'star' }
+    };
+    
+    Plotly.newPlot("chart-conjoint-wtp", [traceStandard, traceElite, traceOLS, traceUEB], {
+        margin: { t: 20, b: 40, l: 45, r: 20 },
+        xaxis: { title: { text: "Duración (Horas)", font: { size: 11, color: '#475569' } } },
+        yaxis: { title: { text: "Precio (Millones COP)", font: { size: 11, color: '#475569' } } },
+        legend: { orientation: 'h', y: -0.2 },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)'
+    }, {displayModeBar: false});
+
+    // 3. Search Intent Keywords & CPC
+    const kwNames = rawData.search_intent.keywords.map(k => k.keyword);
+    const kwVolumes = rawData.search_intent.keywords.map(k => k.volume);
+    const kwCPCs = rawData.search_intent.keywords.map(k => k.cpc);
+    
+    const traceVolume = {
+        x: kwNames,
+        y: kwVolumes,
+        type: 'bar',
+        name: 'Volumen Búsqueda (Mensual)',
+        marker: { color: '#014948' }
+    };
+    
+    const traceCPC = {
+        x: kwNames,
+        y: kwCPCs,
+        type: 'bar',
+        name: 'CPC (COP)',
+        yaxis: 'y2',
+        marker: { color: '#F59E0B' }
+    };
+    
+    Plotly.newPlot("chart-thompson-posterior", [traceVolume, traceCPC], {
+        margin: { t: 20, b: 60, l: 45, r: 45 },
+        xaxis: { tickfont: { size: 9 } },
+        yaxis: { title: { text: "Volumen de Búsqueda", font: { size: 11, color: '#014948' } } },
+        yaxis2: {
+            title: { text: "Costo por Clic (CPC) COP", font: { size: 11, color: '#F59E0B' } },
+            overlaying: 'y',
+            side: 'right'
+        },
+        barmode: 'group',
+        legend: { orientation: 'h', y: -0.3 },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)'
+    }, {displayModeBar: false});
+
+    // 4. Conversion Funnel
+    Plotly.newPlot("chart-msprt-path", [{
+        type: 'funnel',
+        y: ["Tráfico Web (Clicks)", "Leads (p1: 4.5%)", "Entrevistas (p2: 20%)", "Matriculados (p3: 11.5%)"],
+        x: [1500, Math.round(1500 * 0.045), Math.round(1500 * 0.045 * 0.20), Math.round(1500 * 0.045 * 0.20 * 0.115)],
+        textinfo: "value+percent initial",
+        marker: {
+            color: ['#014948', '#F59E0B', '#E65100', '#67D301']
+        }
+    }], {
+        margin: { t: 20, b: 20, l: 150, r: 20 },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)'
+    }, {displayModeBar: false});
+
+    // ----------------------------------------------------
+    // SIMULADOR MONTE CARLO INTERACTIVO (JAVASCRIPT)
+    // --------------------------------------------------------------------------------------------------
+    // SIMULADOR MONTE CARLO INTERACTIVO (JAVASCRIPT)
+    // ----------------------------------------------------
+    
+    const sliderTraffic = document.getElementById("slider-traffic");
+    const sliderPrice = document.getElementById("slider-price");
+    const sliderConversion = document.getElementById("slider-conversion");
+    const sliderScale = document.getElementById("slider-scale");
+    const sliderConversion3 = document.getElementById("slider-conversion3");
+
+    const valTraffic = document.getElementById("val-traffic");
+    const valPrice = document.getElementById("val-price");
+    const valConversion = document.getElementById("val-conversion");
+    const valScale = document.getElementById("val-scale");
+    const valConversion3 = document.getElementById("val-conversion3");
+
+    const simProbSub = document.getElementById("sim-prob-sub");
+    const simProbRentable = document.getElementById("sim-prob-rentable");
+    const simExpectedProfit = document.getElementById("sim-expected-profit");
+
+    function sampleBinomial(n, p) {
+        const mean = n * p;
+        const stdDev = Math.sqrt(n * p * (1 - p));
+        let u1 = Math.random();
+        let u2 = Math.random();
+        let randStdNormal = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+        let sample = Math.round(mean + stdDev * randStdNormal);
+        return Math.max(0, Math.min(n, sample));
+    }
+
+    function runMonteCarlo() {
+        const traffic = parseInt(sliderTraffic.value);
+        const price = parseFloat(sliderPrice.value);
+        const conversion1 = parseFloat(sliderConversion.value) / 100;
+        const conversion2 = parseFloat(sliderScale.value) / 100;
+        const conversion3 = parseFloat(sliderConversion3.value) / 100;
+
+        valTraffic.innerText = traffic.toLocaleString('en-US');
+        valPrice.innerText = "$" + price.toFixed(1) + "M";
+        valConversion.innerText = (conversion1 * 100).toFixed(1) + "%";
+        valScale.innerText = (conversion2 * 100).toFixed(1) + "%";
+        valConversion3.innerText = (conversion3 * 100).toFixed(1) + "%";
+
+        const nSims = 2000;
+        const minStudents = 12;
+        const maxStudents = 50;
+        const C_dev = 12.5;
+        const C_marginal = 0.3;
+        
+        // Calcular costo de marketing en millones de COP
+        const cpc = rawData && rawData.search_intent ? rawData.search_intent.weighted_cpc_COP : 4453;
+        const C_marketing = (traffic * cpc) / 1e6;
+
+        let underEnrollmentCount = 0;
+        let positiveProfitCount = 0;
+        let totalProfit = 0;
+        const profitDistribution = [];
+
+        for (let i = 0; i < nSims; i++) {
+            let leads = sampleBinomial(traffic, conversion1);
+            let interviews = sampleBinomial(leads, conversion2);
+            let enrollments = sampleBinomial(interviews, conversion3);
+            enrollments = Math.min(maxStudents, enrollments);
+
+            const revenue = enrollments * price;
+            const variableCosts = enrollments * C_marginal;
+            const netProfit = revenue - variableCosts - C_dev - C_marketing;
+
+            profitDistribution.push(netProfit);
+            totalProfit += netProfit;
+
+            if (enrollments < minStudents) {
+                underEnrollmentCount++;
+            }
+            if (netProfit > 0) {
+                positiveProfitCount++;
+            }
+        }
+
+        const pSub = (underEnrollmentCount / nSims) * 100;
+        const pRentable = (positiveProfitCount / nSims) * 100;
+        const meanProfit = totalProfit / nSims;
+
+        simProbSub.innerText = pSub.toFixed(1) + "%";
+        simProbRentable.innerText = pRentable.toFixed(1) + "%";
+        simExpectedProfit.innerText = "$" + meanProfit.toFixed(1) + "M";
+        updateDecisionLogic(pRentable);
+
+        if (pSub > 15.0) {
+            simProbSub.className = "text-2xl font-extrabold text-red-500 mt-2";
+        } else if (pSub > 5.0) {
+            simProbSub.className = "text-2xl font-extrabold text-amber-500 mt-2";
+        } else {
+            simProbSub.className = "text-2xl font-extrabold text-emerald-400 mt-2";
+        }
+
+        Plotly.newPlot("chart-sim-distribution", [{
+            x: profitDistribution,
+            type: 'histogram',
+            marker: {
+                color: '#67D301',
+                line: { color: '#0F172A', width: 0.5 }
+            },
+            opacity: 0.85
+        }], {
+            margin: { t: 10, b: 35, l: 35, r: 10 },
+            xaxis: { title: { text: "Utilidad Neta (Millones COP)", font: { size: 10, color: '#94A3B8' } }, tickfont: { color: '#94A3B8' } },
+            yaxis: { title: { text: "Frecuencia", font: { size: 10, color: '#94A3B8' } }, tickfont: { color: '#94A3B8' } },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            gridcolor: 'rgba(255,255,255,0.05)'
+        }, {displayModeBar: false});
+    }
+
+    if (sliderTraffic && sliderPrice && sliderConversion && sliderScale && sliderConversion3) {
+        [sliderTraffic, sliderPrice, sliderConversion, sliderScale, sliderConversion3].forEach(slider => {
+            slider.addEventListener("input", runMonteCarlo);
+        });
+
+        // Inicializar los sliders de conversión basados en los benchmarks EdTech B2B LATAM
+        sliderConversion.value = 4.5;
+        valConversion.innerText = "4.5%";
+
+        sliderScale.value = 20.0;
+        valScale.innerText = "20.0%";
+
+        sliderConversion3.value = 11.5;
+        valConversion3.innerText = "11.5%";
+
+        runMonteCarlo();
+    }
+</script>
+</body>
+</html>

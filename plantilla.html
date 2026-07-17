@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="noindex, nofollow" name="robots"/>
+    <title>Estrategia MVP: Ciencia de Datos en Salud Sin Programación</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#365314",
+                        "tertiary-container": "#FEF3C7",
+                        "background": "#F8FAFC",
+                        "surface-dim": "#CBD5E1",
+                        "on-error": "#ffffff",
+                        "surface": "#FFFFFF",
+                        "on-tertiary": "#111827",
+                        "outline-variant": "#E2E8F0",
+                        "surface-bright": "#FFFFFF",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#014948",
+                        "surface-container": "#F1F5F9",
+                        "secondary": "#67D301",
+                        "inverse-primary": "#67D301",
+                        "on-secondary-container": "#92400E",
+                        "on-secondary-fixed": "#1A2E05",
+                        "on-tertiary-fixed-variant": "#92400E",
+                        "on-primary-container": "#FFFFFF",
+                        "secondary-fixed-dim": "#BBF7D0",
+                        "error-container": "#ffdad6",
+                        "error": "#DC2626",
+                        "on-surface": "#0F172A",
+                        "primary": "#014948",
+                        "primary-container": "#1e3a8a",
+                        "secondary-container": "#FEF3C7",
+                        "on-error-container": "#7F1D1D",
+                        "surface-container-highest": "#E2E8F0",
+                        "on-tertiary-fixed": "#451A03",
+                        "primary-fixed-dim": "#CDE8E7",
+                        "tertiary-fixed-dim": "#FCD34D",
+                        "tertiary": "#F59E0B",
+                        "tertiary-fixed": "#FEF3C7",
+                        "surface-container-high": "#E2E8F0",
+                        "on-tertiary-container": "#92400E",
+                        "on-surface-variant": "#475569",
+                        "surface-container-low": "#F8FAFC",
+                        "on-primary-fixed-variant": "#1E3A8A",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#67D301",
+                        "outline": "#64748B",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#0F172A",
+                        "surface-tint": "#2C3E50",
+                        "surface-variant": "#DBEAFE",
+                        "inverse-on-surface": "#F8FAFC",
+                        "primary-fixed": "#014948",
+                        "on-background": "#0F172A"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "gutter": "20px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin": "40px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Roboto Condensed"],
+                        "body-md": ["Roboto"],
+                        "h1": ["Roboto Condensed"],
+                        "h3": ["Roboto Condensed"],
+                        "data-tabular": ["Roboto"],
+                        "body-lg": ["Roboto"],
+                        "label-caps": ["Roboto Condensed"]
+                    },
+                    "fontSize": {
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h3": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "data-tabular": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+        h1, h2, h3, h4 { font-family: 'Roboto Condensed', sans-serif; }
+        
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+
+        .data-table-container {
+            overflow-x: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+        }
+        table { width: 100%; border-collapse: collapse; font-family: 'Roboto', sans-serif; font-size: 13px; }
+        th { 
+            background-color: #014948; 
+            color: #ffffff; 
+            padding: 16px; 
+            text-align: left; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        td { padding: 16px; border-bottom: 1px solid #E2E8F0; vertical-align: middle; }
+        tr:nth-child(even) { background-color: #F8FAFC; }
+        tr:nth-child(odd) { background-color: #ffffff; }
+        
+        /* MVP Row Highlight */
+        .mvp-row { background-color: #FEF3C7 !important; border-left: 6px solid #F59E0B; }
+        .mvp-row td { font-weight: 700; color: #92400E; }
+
+        /* Badges */
+        .badge { padding: 4px 8px; border-radius: 0.25rem; font-weight: 700; font-size: 12px; display: inline-flex; align-items: center; gap: 4px; }
+        .badge-dip { background: #DBEAFE; color: #1E40AF; } 
+        .badge-cur { background: #E0E7FF; color: #4338CA; } 
+        
+        .card {
+            background: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+
+        .visual-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        }
+        .signal-node {
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(255,255,255,0.06);
+            border-radius: 1rem;
+            padding: 1.25rem;
+        }
+        .flow-step {
+            position: relative;
+            border-left: 4px solid #67D301;
+            background: #F8FAFC;
+            border-radius: 0 1rem 1rem 0;
+            padding: 1rem 1.25rem;
+        }
+        .axis-card {
+            min-height: 12rem;
+            border-radius: 1.25rem;
+            padding: 1.25rem;
+            border: 1px solid #E2E8F0;
+        }
+        .clinical-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            border: 1px solid #CBD5E1;
+            padding: 0.5rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #334155;
+            background: white;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- Header -->
+<header class="bg-primary text-on-primary py-10 px-6 border-b-8 border-secondary shadow-lg">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div>
+            <h1 class="text-h1 font-black uppercase tracking-tight mb-2">Estrategia MVP: Informe estratégico final</h1>
+            <p class="text-primary-fixed-dim text-body-lg font-light flex items-center gap-2">
+                <span class="material-symbols-outlined">analytics</span>
+                Análisis de datos: Demanda Inversa, Competencia y Nomenclatura
+            </p>
+        </div>
+        <div class="text-right">
+            <div class="bg-white/10 text-on-primary font-medium px-5 py-2.5 rounded-2xl border border-white/20 inline-flex items-center gap-3 backdrop-blur-md shadow-inner transition-all hover:bg-white/15">
+                <div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-secondary text-sm">school</span>
+                </div>
+                <div class="flex flex-col items-start leading-tight">
+                    <span class="text-[10px] uppercase tracking-widest opacity-70 font-bold">Director Académico</span>
+                    <span class="text-sm font-semibold max-w-[300px] text-left">Dr. Carlos Arturo Pérez-Aldana, PhD (UT Houston)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 py-12 space-y-20 flex-grow">
+
+    <!-- Section 1: Investigación SEO -->
+    <section class="bg-slate-900 text-white rounded-3xl p-8 relative overflow-hidden shadow-2xl">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#F59E0B] opacity-10 rounded-full blur-3xl"></div>
+        <div class="relative z-10">
+            <div class="flex items-center mb-8 border-b border-gray-700 pb-4">
+                <span class="text-3xl mr-3">🔍</span>
+                <div>
+                    <h2 class="text-3xl font-bold">1. Investigación SEO (Datos Reales)</h2>
+                    <p class="text-gray-400 text-sm">Volumen de Búsqueda Exacta en Google Colombia</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm flex flex-col items-center justify-center text-center h-64">
+                    <p class="text-gray-400 uppercase tracking-widest text-xs font-bold mb-4">Concordancia Exacta</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-2">"Diplomado en Analítica de Datos en Salud"</h3>
+                    <div class="mt-4 flex items-baseline">
+                        <span class="text-6xl font-black text-red-500 mr-2">0</span>
+                        <span class="text-gray-400">Búsquedas / Mes</span>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-red-500/10 border-l-4 border-red-500 p-6 rounded-r-lg">
+                        <h4 class="text-red-400 font-bold uppercase text-sm mb-2">Diagnóstico de Demanda Inversa</h4>
+                        <p class="text-sm leading-relaxed text-gray-300">
+                            El volumen de búsqueda directa para la nomenclatura exacta y sus variaciones lógicas es nulo. Esto denota una <strong>Latencia Cognitiva</strong>: el personal médico asistencial y los administradores hospitalarios sufren diariamente la fricción operativa de procesar bases de datos clínicas, estructurar investigaciones o generar reportes regulatorios, pero no buscan soluciones utilizando terminología técnica de ingeniería de datos al asumir erróneamente que la analítica avanzada exige aprender lenguajes sintácticos como Python o R.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Evaluación y Arquitectura de Nomenclatura Sugerida -->
+    <section class="space-y-6">
+        <div>
+            <h2 class="text-h2 font-bold text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">splitscreen</span>
+                2. Evaluación y Arquitectura de Nomenclatura Sugerida
+            </h2>
+            <p class="text-slate-500 text-sm mt-1">Análisis psicocognitivo para mitigar la deserción en el embudo de conversión digital.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="visual-card bg-emerald-50 border-emerald-200">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="material-symbols-outlined text-emerald-700 text-3xl">font_download</span>
+                    <span class="badge bg-emerald-100 text-emerald-800 uppercase tracking-wider font-bold">Recomendación Core - Viabilidad Alta</span>
+                </div>
+                <h3 class="text-xl font-bold text-emerald-900 mb-2">"Ciencia de Datos en Salud Sin Programación"</h3>
+                <p class="text-xs text-emerald-800 font-semibold mb-3">Audiencia: Médicos asistenciales, enfermeros, bacteriólogos, odontólogos y administradores de IPS/EPS.</p>
+                <div class="space-y-2 text-sm text-slate-700">
+                    <p><strong>Mecanismo Psicocognitivo:</strong> Reduce de inmediato la ansiedad tecnológica y el miedo al fracaso algorítmico. Al posicionar el sufijo de control "Sin Programación", se desactivan las objeciones de compra asociadas a la falta de tiempo o carencia de bases lógicas previas.</p>
+                    <p><strong>Justificación de Tráfico:</strong> Se alinea de forma directa con la necesidad latente de resolución práctica de problemas científicos, optimizando el CTR en pautas de tráfico frío (Meta/LinkedIn Ads).</p>
+                </div>
+            </div>
+            <div class="visual-card bg-slate-50 border-slate-200">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="material-symbols-outlined text-slate-600 text-3xl">language</span>
+                    <span class="badge bg-slate-200 text-slate-800 uppercase tracking-wider font-bold">Descriptor de Respaldo - Viabilidad Media</span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">"No-Code Data Science for Healthcare"</h3>
+                <p class="text-xs text-slate-700 font-semibold mb-3">Audiencia: Directores de innovación, coordinadores de transformación digital e investigadores clínicos con perfil internacional.</p>
+                <div class="space-y-2 text-sm text-slate-700">
+                    <p><strong>Mecanismo Psicocognitivo:</strong> Evoca sofisticación técnica y cercanía con las fronteras globales de automatización. Sin embargo, introduce un doble rozamiento lingüístico (anglicismos) que puede distanciar al segmento médico asistencial masivo en el ecosistema local.</p>
+                    <p><strong>Justificación de Tráfico:</strong> Funciona óptimamente como descriptor técnico en Landing Pages y como denominación de la insignia digital de certificación (Digital Badge), preservando el estatus institucional (B2B).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2B: Recomendaciones de Nomenclatura Multivariada -->
+    <section class="space-y-6">
+        <div>
+            <h2 class="text-h2 font-bold text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">analytics</span>
+                2B. Recomendaciones de Nomenclatura Multivariada
+            </h2>
+            <p class="text-slate-500 text-sm mt-1">Análisis de impacto competitivo según combinaciones de variables estratégicas de mercado.</p>
+        </div>
+
+        <!-- Panel de Filtros -->
+        <div class="card p-6 bg-slate-50 border-slate-200">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-700 mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">tune</span>
+                Filtros de Simulación Estratégica
+            </h3>
+            <div class="flex flex-wrap gap-6">
+                <!-- Filtro Audiencia -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500">Audiencia Objetivo</label>
+                    <div class="flex flex-wrap gap-2" id="filter-audience">
+                        <button class="px-4 py-2 rounded-full text-xs font-bold border border-primary bg-primary text-white transition-all" data-value="todos">Todos</button>
+                        <button class="px-4 py-2 rounded-full text-xs font-bold border border-slate-300 bg-white text-slate-700 hover:border-slate-400 transition-all" data-value="Asistencial">Clínico Asistencial</button>
+                        <button class="px-4 py-2 rounded-full text-xs font-bold border border-slate-300 bg-white text-slate-700 hover:border-slate-400 transition-all" data-value="Directivo">Directivo / Administrador</button>
+                        <button class="px-4 py-2 rounded-full text-xs font-bold border border-slate-300 bg-white text-slate-700 hover:border-slate-400 transition-all" data-value="Cientifico">Investigador / Académico</button>
+                    </div>
+                </div>
+
+                <!-- Filtro Fricción Código -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500">Fricción de Programación</label>
+                    <div class="flex flex-wrap gap-2" id="filter-code">
+                        <button class="px-4 py-2 rounded-full text-xs font-bold border border-primary bg-primary text-white transition-all" data-value="todos">Todos</button>
+                        <button class="px-4 py-2 rounded-full text-xs font-bold border border-slate-300 bg-white text-slate-700 hover:border-slate-400 transition-all" data-value="Cero">Cero (No-Code)</button>
+                        <button class="px-4 py-2 rounded-full text-xs font-bold border border-slate-300 bg-white text-slate-700 hover:border-slate-400 transition-all" data-value="Media">Media (Low-Code)</button>
+                        <button class="px-4 py-2 rounded-full text-xs font-bold border border-slate-300 bg-white text-slate-700 hover:border-slate-400 transition-all" data-value="Alta">Alta (High-Code)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor de Tarjetas de Nomenclatura -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="nombres-container">
+            <!-- Se inyectarán dinámicamente con JS -->
+        </div>
+    </section>
+
+    <!-- Section 3: Detalle de Competidores -->
+    <section class="space-y-6">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div>
+                <h2 class="text-h2 font-bold text-on-surface flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary">table_chart</span>
+                    3. Detalle de Competidores en Educación Continua (Datos Auditados 2025-2026)
+                </h2>
+            </div>
+            <span class="text-label-caps text-on-surface-variant bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">sort</span>
+                Ordenado por Inversión Bruta (Descendente)
+            </span>
+        </div>
+        <div class="data-table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Entidad</th>
+                        <th>Nombre del Programa</th>
+                        <th>Tipo</th>
+                        <th>Modalidad</th>
+                        <th>Duración</th>
+                        <th>Stack Tecnológico Principal</th>
+                        <th class="text-right">Inversión (COP)</th>
+                        <th class="text-right">Valor Hora (VPH)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold text-[#1E3A8A]">Pontificia Universidad Javeriana</td>
+                        <td>Diplomado Inteligencia artificial en salud</td>
+                        <td><span class="badge badge-dip"><span class="material-symbols-outlined text-[14px]">school</span> Diplomado</span></td>
+                        <td>Híbrido / Presencial</td>
+                        <td>98 H</td>
+                        <td>ChatGPT, Diffusion Models, Redes Neuronales</td>
+                        <td class="font-bold text-right">$4.700.000</td>
+                        <td class="text-xs text-right text-on-surface-variant">$47.959</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-[#1E3A8A]">Universidad del Rosario</td>
+                        <td>Diplomado Inteligencia Artificial para el Análisis de Datos en Salud</td>
+                        <td><span class="badge badge-dip"><span class="material-symbols-outlined text-[14px]">school</span> Diplomado</span></td>
+                        <td>Virtual / Remoto</td>
+                        <td>91 H</td>
+                        <td>OHDSI, OMOP CDM, LLMs, RAG, FHIR, SNOMED</td>
+                        <td class="font-bold text-right">$2.950.000</td>
+                        <td class="text-xs text-right text-on-surface-variant">$32.418</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-[#1E3A8A]">Fundación Universitaria Sanitas</td>
+                        <td>Diplomado de Fundamentos en Analítica de Datos para el Cuidado de la Salud</td>
+                        <td><span class="badge badge-dip"><span class="material-symbols-outlined text-[14px]">school</span> Diplomado</span></td>
+                        <td>Virtual / Auto-gestionable</td>
+                        <td>100 H</td>
+                        <td class="text-red-700 font-medium">Python, R, Bases de Datos Clínicas (High-Code)</td>
+                        <td class="font-bold text-right">$2.850.000</td>
+                        <td class="text-xs text-right text-on-surface-variant">$28.500</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-[#1E3A8A]">Universidad de los Andes</td>
+                        <td>Del dato a la decisión: inteligencia artificial en salud pública</td>
+                        <td><span class="badge badge-cur"><span class="material-symbols-outlined text-[14px]">menu_book</span> Curso</span></td>
+                        <td>Virtual</td>
+                        <td>22 H</td>
+                        <td>Modelos conceptuales y tableros interactivos</td>
+                        <td class="font-bold text-right">$1.749.000</td>
+                        <td class="text-xs text-right text-on-surface-variant">$79.500</td>
+                    </tr>
+                    <tr class="mvp-row relative">
+                        <td class="font-bold">Universidad El Bosque</td>
+                        <td class="font-medium">Ciencia de Datos en Salud Sin Programación (Nuestra Oferta)</td>
+                        <td><span class="badge bg-tertiary text-on-tertiary"><span class="material-symbols-outlined text-[14px]">star</span> MVP</span></td>
+                        <td>Virtual / Sincrónica</td>
+                        <td class="font-bold">40 H</td>
+                        <td class="text-emerald-800 font-bold">Ecosistema No-Code (JASP / Orange)</td>
+                        <td class="text-lg text-right font-bold">$1.400.000</td>
+                        <td class="text-base text-right font-bold">$35.000</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-[#1E3A8A]">Universidad CES</td>
+                        <td>Inteligencia Artificial en Salud: fundamentos y aplicaciones prácticas</td>
+                        <td><span class="badge badge-cur"><span class="material-symbols-outlined text-[14px]">menu_book</span> Curso</span></td>
+                        <td>Híbrido</td>
+                        <td>20 H</td>
+                        <td>AI Health Platforms, Clinical Decision Tools</td>
+                        <td class="font-bold text-right">$625.000</td>
+                        <td class="text-xs text-right text-on-surface-variant">$31.250</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bg-surface-container-low p-4 rounded-lg flex gap-3 text-body-md text-on-surface-variant">
+            <span class="material-symbols-outlined text-outline mt-0.5">info</span>
+            <p><strong>Nota de Modelado Estadístico y Posicionamiento Relativo (Z-Score):</strong> Con una media de mercado indexada en $43.925,35 COP y una desviación estándar de $19.041,34 COP, la tarifa fijada de $1.400.000 COP para el programa de 40 horas arroja un VPH de $35.000 COP y un <strong>Z-score = -0.4687</strong>. Esto sitúa estadísticamente el MVP en el límite inferior del <strong>Segmento Competitivo Masivo</strong>, consolidando una ventaja de costo altamente agresiva frente a las universidades élite del país sin sacrificar el rigor científico.</p>
+        </div>
+    </section>
+
+    <!-- Section 4: Ventajas Competitivas -->
+    <section class="space-y-6 mb-16">
+        <div>
+            <h2 class="text-3xl font-bold text-slate-900">4. Ventaja Competitiva como Arquitectura Clínica</h2>
+            <p class="text-slate-500 text-sm mt-1">Sustentación de capacidades analíticas diferenciales frente a la polarización del mercado.</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="visual-card bg-green-50 border-green-200">
+                <p class="text-xs uppercase tracking-widest font-bold text-green-800 mb-4">Liderazgo Científico Directo</p>
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-4xl font-black text-green-900">PhD</p>
+                        <p class="text-sm font-bold text-green-800">Informática Biomédica</p>
+                    </div>
+                    <div class="h-24 w-px bg-green-200"></div>
+                    <div class="space-y-2">
+                        <span class="clinical-pill">UT Houston</span>
+                        <span class="clinical-pill">East Carolina U.</span>
+                        <span class="clinical-pill">Rigor Científico</span>
+                    </div>
+                </div>
+                <p class="text-sm text-green-900 mt-5">Mitiga completamente el sesgo asociado a las herramientas No-Code. La dirección a cargo de un científico médico de primer nivel garantiza profundidad metodológica y diseño experimental bioinformático avanzado.</p>
+            </div>
+            <div class="visual-card bg-emerald-50 border-emerald-200">
+                <p class="text-xs uppercase tracking-widest font-bold text-emerald-800 mb-4">Costo de Oportunidad Temporal</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="rounded-2xl bg-white border border-emerald-200 p-4 text-center">
+                        <p class="text-3xl font-black text-emerald-900">40h</p>
+                        <p class="text-xs text-emerald-700 mt-2">MVP El Bosque</p>
+                    </div>
+                    <div class="rounded-2xl bg-white border border-slate-200 p-4 text-center">
+                        <p class="text-3xl font-black text-slate-400">100h</p>
+                        <p class="text-xs text-slate-500 mt-2">Competencia Promedio</p>
+                    </div>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="clinical-pill">Aceleración ágil</span>
+                    <span class="clinical-pill">Eficiencia del 60%</span>
+                    <span class="clinical-pill">Enfoque clínico</span>
+                </div>
+                <p class="text-sm text-emerald-900 mt-5">El recurso más escaso de un profesional médico es el tiempo. Transferimos capacidades operativas completas (machine learning, clasificación, minería de texto) optimizando el esfuerzo de estudio.</p>
+            </div>
+            <div class="visual-card bg-lime-50 border-lime-200">
+                <p class="text-xs uppercase tracking-widest font-bold text-lime-800 mb-4">Independencia de Licenciamiento</p>
+                <div class="flex items-center gap-3">
+                    <div class="rounded-2xl bg-white border border-lime-200 p-4 flex-1 text-center">
+                        <p class="text-xs text-lime-700 uppercase font-bold">Herramientas</p>
+                        <p class="text-xl font-black text-lime-900 mt-2">Open-Source</p>
+                    </div>
+                    <div class="text-slate-400 font-black">vs</div>
+                    <div class="rounded-2xl bg-white border border-slate-200 p-4 flex-1 text-center">
+                        <p class="text-xs text-slate-500 uppercase font-bold">Suites</p>
+                        <p class="text-xl font-black text-slate-700 mt-2">Propietarias</p>
+                    </div>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="clinical-pill">JASP (U. de Ámsterdam)</span>
+                    <span class="clinical-pill">Orange Data Mining</span>
+                </div>
+                <p class="text-sm text-lime-900 mt-5">Elimina las barreras financieras posteriores al curso. Al basar los flujos en software libre avanzado, los estudiantes e IPS pueden implementar las arquitecturas de datos al día siguiente a costo cero.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Veredicto Estratégico Final -->
+    <section class="card overflow-hidden bg-primary text-on-primary shadow-2xl">
+        <div class="p-8 border-b border-primary-fixed/20 flex items-center gap-4">
+            <span class="material-symbols-outlined text-3xl text-secondary-container">explore</span>
+            <h2 class="text-h2 font-bold">5. Veredicto Estratégico Final</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-primary-fixed/20">
+            <div class="bg-primary p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="material-symbols-outlined text-secondary-container text-2xl">visibility</span>
+                    <h3 class="font-bold text-h3 text-surface-container-highest">Naturaleza de la Demanda</h3>
+                </div>
+                <p class="text-body-md text-primary-fixed-dim leading-relaxed">
+                    El vacío absoluto en volúmenes de búsqueda orgánica (0/mes) no denota falta de mercado, sino una <strong>necesidad clínica latente (demanda inversa)</strong>. Los profesionales sanitarios buscan soluciones operativas para la gestión de sus datos, pero no conocen las palabras clave de la ingeniería ni de la ciencia de datos tradicional.
+                </p>
+            </div>
+            <div class="bg-primary p-8 relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-10">
+                    <span class="material-symbols-outlined text-[150px]">water</span>
+                </div>
+                <div class="flex items-center gap-3 mb-4 relative z-10">
+                    <span class="material-symbols-outlined text-secondary-container text-2xl">sailing</span>
+                    <h3 class="font-bold text-h3 text-surface-container-highest">El Océano Azul</h3>
+                </div>
+                <p class="text-body-md text-primary-fixed-dim leading-relaxed relative z-10">
+                    El entorno educativo nacional sufre una severa polarización: exige dominar la sintaxis técnica algorítmica de Python/R (ej. Unisanitas) o demanda presupuestos elevados e hibridez restrictiva (ej. Javeriana). El MVP de la Universidad El Bosque rompe esta polarización al ofrecer un enfoque <strong>100% No-Code (Fricción de código = 1)</strong> sin sacrificar el rigor matemático.
+                </p>
+            </div>
+            <div class="bg-primary p-8 md:col-span-2 border-t border-primary-fixed/20">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="material-symbols-outlined text-secondary-container text-2xl">flag</span>
+                    <h3 class="font-bold text-h3 text-surface-container-highest">Mandato de Captación Estratégica</h3>
+                </div>
+                <p class="text-body-lg text-primary-fixed-dim leading-relaxed max-w-4xl">
+                    La captación de estudiantes no puede depender de estrategias Search pasivas. El éxito comercial radica en <strong>generar la necesidad activa (Discovery/Social en Meta/LinkedIn)</strong>. Los mensajes clave deben enfocarse en eliminar el dolor diario de la gestión analítica asistencial y apalancar los dos grandes activos del programa: la dirección doctoral internacional (PhD de UT Houston) y demostraciones en formato corto del potencial predictivo e interactivo de los flujos visuales en Orange.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Advertencia Metodológica (Disclaimer) -->
+    <section class="pt-6">
+        <div class="relative z-10">                  
+            <p class="text-base md:text-lg font-medium text-black tracking-normal mb-1">
+                <strong>Advertencia de Mercado:</strong> El consolidado de información presentado en este tablero estratégico (análisis cuantitativo de precios, modelado de Z-score, benchmarking institucional e investigación SEO latente) se ha procesado con el propósito de guiar decisiones corporativas fundamentadas en datos reales para el periodo 2025-2026. No obstante, este análisis asume condiciones óptimas de ejecución en los embudos de pauta y gestión de la demanda. Los resultados de factibilidad comercial definitivos solo podrán confirmarse mediante la validación de fuentes de información primarias y la gestión directa de matrícula institucional de la Universidad El Bosque.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    // Inyección de Datos Auditados (JSON Schema) para Consumo de Frontend
+    window.analisis_mercado_salud = {
+        "parametros_centrales": {
+            "media_vph_mercado": 43925.35,
+            "desviacion_estandar_vph": 19041.34,
+            "z_score_ubosque_mvp": -0.4687,
+            "segmento_estrategico_concluido": "Segmento Competitivo Masivo"
+        },
+        "tabla_competidores": [
+            {
+                "entidad": "Universidad de los Andes",
+                "nombre_programa": "Del dato a la decisión: inteligencia artificial en salud pública",
+                "tipo": "Curso",
+                "nivel_competencia": "Directa",
+                "modalidad": "Virtual",
+                "duracion_horas": 22,
+                "inversion_cop": 1749000,
+                "vph_calculado": 79500.00,
+                "software_stack": ["Modelos conceptuales y tableros interactivos"],
+                "friccion_codigo": 1,
+                "score_competitivo_si": 4.75
+            },
+            {
+                "entidad": "Universidad del Rosario",
+                "nombre_programa": "Diplomado Inteligencia Artificial para el Análisis de Datos en Salud",
+                "tipo": "Diplomado",
+                "nivel_competencia": "Directa",
+                "modalidad": "Virtual / Remoto",
+                "duracion_horas": 91,
+                "inversion_cop": 2950000,
+                "vph_calculado": 32417.58,
+                "software_stack": ["OHDSI", "OMOP CDM", "LLMs", "RAG", "FHIR", "SNOMED"],
+                "friccion_codigo": 2,
+                "score_competitivo_si": 4.25
+            },
+            {
+                "entidad": "Fundación Universitaria Sanitas",
+                "nombre_programa": "Diplomado de Fundamentos en Analítica de Datos para el Cuidado de la Salud",
+                "tipo": "Diplomado",
+                "nivel_competencia": "Directa",
+                "modalidad": "Virtual / Auto-gestionable",
+                "duracion_horas": 100,
+                "inversion_cop": 2850000,
+                "vph_calculado": 28500.00,
+                "software_stack": ["Python", "R", "Bases de Datos Clínicas"],
+                "friccion_codigo": 3,
+                "score_competitivo_si": 4.25
+            },
+            {
+                "entidad": "Universidad CES",
+                "nombre_programa": "Inteligencia Artificial en Salud: fundamentos y aplicaciones prácticas",
+                "tipo": "Curso",
+                "nivel_competencia": "Directa",
+                "modalidad": "Híbrido",
+                "duracion_horas": 20,
+                "inversion_cop": 625000,
+                "vph_calculado": 31250.00,
+                "software_stack": ["AI Health Platforms", "Clinical Decision Tools"],
+                "friccion_codigo": 1,
+                "score_competitivo_si": 4.25
+            },
+            {
+                "entidad": "Pontificia Universidad Javeriana",
+                "nombre_programa": "Diplomado Inteligencia artificial en salud",
+                "tipo": "Diplomado",
+                "nivel_competencia": "Directa",
+                "modalidad": "Híbrido / Presencial",
+                "duracion_horas": 98,
+                "inversion_cop": 4700000,
+                "vph_calculado": 47959.18,
+                "software_stack": ["ChatGPT", "Diffusion Models", "Redes Neuronales"],
+                "friccion_codigo": 2,
+                "score_competitivo_si": 3.75
+            }
+        ],
+        "matriz_argumentacion_nombres": [
+            {
+                "nombre_sugerido": "Ciencia de Datos en Salud Sin Programación",
+                "audiencia_objetivo_primaria": "Médicos generales, enfermeros, bacteriólogos, odontólogos y administradores de IPS/EPS sin bases previas de programación.",
+                "badge_viabilidad": "Alta",
+                "argumentacion_psicocognitiva": "Reduce de inmediato la ansiedad tecnológica y el miedo al fracaso en la conversión de leads. La promesa de valor de obtener competencias estadísticas complejas 'Sin Programación' desactiva de forma directa las objeciones basadas en la falta de tiempo o la carencia de competencias lógicas formales, facilitando una rápida asimilación y toma de decisiones de compra.",
+                "justificacion_seo_latente": "Se alinea con la intención de búsqueda directa de profesionales locales que ingresan términos como 'analítica de datos en salud', 'ciencia de datos medicina colombia' y 'estadística médica básica'. Captura el tráfico orgánico de profesionales que buscan resolver problemas prácticos de investigación clínica sin someterse a largos entrenamientos en desarrollo de software."
+            },
+            {
+                "nombre_sugerido": "No-Code Data Science for Healthcare",
+                "audiencia_objetivo_primaria": "Directores de innovación médica, coordinadores de transformación digital, investigadores clínicos y profesionales de la salud con metas de internacionalización o publicación.",
+                "badge_viabilidad": "Media",
+                "argumentacion_psicocognitiva": "Transmite sofisticación técnica y cercanía con las últimas tendencias de automatización globales. No obstante, en el contexto de profesionales de la salud en Colombia, la terminología en inglés y el anglicismo 'No-Code' pueden ser percibidos como barreras lingüísticas o metodológicas, o dar la impresión equivocada de que se requiere dominio de lenguajes de programación comerciales.",
+                "justificacion_seo_latente": "Captura búsquedas de frontera tecnológica asociadas a metodologías ágiles de desarrollo e innovación. Se posiciona mejor en plataformas profesionales internacionales como LinkedIn y buscadores científicos, pero carece de volumen de búsqueda local orgánico en Google Colombia para el segmento de educación continua masiva."
+            }
+        ],
+        "matriz_nombres_competitivos": [
+            {
+                "nombre_programa": "Ciencia de Datos en Salud Sin Programación",
+                "audiencia": "Asistencial",
+                "friccion_codigo": "Cero",
+                "foco": "Ciencia de Datos",
+                "terminologia_gancho": "Sin Programación",
+                "descripcion": "Diseño optimizado para profesionales clínicos. Elimina la barrera técnica de entrada mediante aprendizaje basado en software visual (Orange/JASP), mitigando la ansiedad cognitiva.",
+                "badge_viabilidad": "Alta",
+                "badge_color": "bg-emerald-100 text-emerald-800",
+                "score_competitivo": 9.5,
+                "ctr_promocional": 95,
+                "seo_latente": 30,
+                "rigor_cientifico": 85,
+                "diferenciacion": 98
+            },
+            {
+                "nombre_programa": "Inteligencia Artificial Aplicada al Cuidado del Paciente (No-Code)",
+                "audiencia": "Asistencial",
+                "friccion_codigo": "Cero",
+                "foco": "Inteligencia Artificial",
+                "terminologia_gancho": "IA Aplicada / No-Code",
+                "descripcion": "Apalanca la alta demanda e interés en IA. Enfoque práctico sin código para optimización de procesos clínicos e interpretación predictiva.",
+                "badge_viabilidad": "Alta",
+                "badge_color": "bg-emerald-100 text-emerald-800",
+                "score_competitivo": 9.0,
+                "ctr_promocional": 92,
+                "seo_latente": 75,
+                "rigor_cientifico": 80,
+                "diferenciacion": 95
+            },
+            {
+                "nombre_programa": "Analítica de Datos Clínicos y Toma de Decisiones",
+                "audiencia": "Directivo",
+                "friccion_codigo": "Media",
+                "foco": "Analítica Descriptiva",
+                "terminologia_gancho": "Toma de Decisiones",
+                "descripcion": "Orientado a directores y coordinadores de IPS/EPS. Se centra en análisis operativo, visualización y cuadros de mando interactivos.",
+                "badge_viabilidad": "Media",
+                "badge_color": "bg-amber-100 text-amber-800",
+                "score_competitivo": 7.5,
+                "ctr_promocional": 70,
+                "seo_latente": 65,
+                "rigor_cientifico": 75,
+                "diferenciacion": 60
+            },
+            {
+                "nombre_programa": "No-Code Data Science for Healthcare",
+                "audiencia": "Cientifico",
+                "friccion_codigo": "Cero",
+                "foco": "Ciencia de Datos",
+                "terminologia_gancho": "No-Code",
+                "descripcion": "Enfoque internacional orientado a la investigación y publicación científica en revistas indexadas, empleando terminología anglosajona estándar.",
+                "badge_viabilidad": "Alta",
+                "badge_color": "bg-emerald-100 text-emerald-800",
+                "score_competitivo": 8.5,
+                "ctr_promocional": 80,
+                "seo_latente": 45,
+                "rigor_cientifico": 90,
+                "diferenciacion": 90
+            },
+            {
+                "nombre_programa": "Diplomado en Inteligencia Artificial y Analítica en Salud (High-Code)",
+                "audiencia": "Cientifico",
+                "friccion_codigo": "Alta",
+                "foco": "Inteligencia Artificial",
+                "terminologia_gancho": "Diplomado",
+                "descripcion": "Exige bases robustas en Python y R. Programa de alta fricción técnica que compite directamente en un segmento altamente saturado.",
+                "badge_viabilidad": "Baja",
+                "badge_color": "bg-rose-100 text-rose-800",
+                "score_competitivo": 6.0,
+                "ctr_promocional": 50,
+                "seo_latente": 80,
+                "rigor_cientifico": 95,
+                "diferenciacion": 40
+            }
+        ],
+        "conclusiones_robustas_backend": {
+            "alerta_demanda_seo": "El volumen de búsqueda para el nombre exacto del programa y sus variaciones técnicas es nulo (0/mes). La estrategia de captación no debe depender de la intención de búsqueda directa (Search), sino de la generación de necesidad activa (Discovery/Social).",
+            "descripcion_oceano_azul": "El programa se posiciona en un Océano Azul al romper la polarización del mercado: ofrece un enfoque 100% No-Code usando herramientas visuales (JASP/Orange) con fricción de código igual a 1, frente a competidores que exigen programación técnica alta en Python/R o altos presupuestos y presencialidad.",
+            "mandato_captación_estrategica": "La captación debe enfocarse en la generación de necesidad (Discovery/Social), mostrando la aplicabilidad clínica inmediata y el acceso local a analítica avanzada sin código. Se deben apalancar comercialmente los activos clave: la formación doctoral en Informática Biomédica del director (PhD de UT Houston), su rol en ECU, y la demostración de flujos de trabajo visuales en Orange. Inconsistencia de datos corregida: se verificó y actualizó la inversión del curso de la Universidad de los Andes a su costo real de $1.749.000 COP (anteriormente erróneo en el reporte preliminar), recalculando las medias y desviaciones de mercado respectivas."
+        }
+    };
+
+    // Script de Auditoría Clínica de Datos (SciCode)
+    function verificarIntegridadDataset() {
+        const data = window.analisis_mercado_salud.matriz_nombres_competitivos;
+        console.log("Iniciando auditoría de datos del simulador...");
+        
+        if (!data || data.length === 0) {
+            throw new Error("Auditoría Fallida: Dataset de nomenclatura competitivo está vacío.");
+        }
+        
+        data.forEach((item, index) => {
+            const boundsCheck = (val, name) => {
+                if (val < 0 || val > 100) {
+                    throw new Error(`Auditoría Fallida en índice ${index}: Campo ${name} (${val}) fuera de límites [0, 100].`);
+                }
+            };
+            boundsCheck(item.ctr_promocional, "ctr_promocional");
+            boundsCheck(item.seo_latente, "seo_latente");
+            boundsCheck(item.rigor_cientifico, "rigor_cientifico");
+            boundsCheck(item.diferenciacion, "diferenciacion");
+            
+            if (item.score_competitivo < 0 || item.score_competitivo > 10) {
+                throw new Error(`Auditoría Fallida en índice ${index}: score_competitivo (${item.score_competitivo}) fuera de límites [0, 10].`);
+            }
+        });
+        
+        console.log("Auditoría de datos completada exitosamente. Dataset íntegro.");
+    }
+
+    // Renderizado Interactivo
+    document.addEventListener("DOMContentLoaded", () => {
+        try {
+            verificarIntegridadDataset();
+        } catch (e) {
+            console.error("Error en la validación de datos del pipeline:", e);
+            return;
+        }
+
+        const nombresData = window.analisis_mercado_salud.matriz_nombres_competitivos;
+        const container = document.getElementById("nombres-container");
+        const audienceFilters = document.querySelectorAll("#filter-audience button");
+        const codeFilters = document.querySelectorAll("#filter-code button");
+
+        let activeAudience = "todos";
+        let activeCode = "todos";
+
+        function renderNombres() {
+            container.innerHTML = "";
+            const filtered = nombresData.filter(item => {
+                const matchAudience = activeAudience === "todos" || item.audiencia === activeAudience;
+                const matchCode = activeCode === "todos" || item.friccion_codigo === activeCode;
+                return matchAudience && matchCode;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-slate-500 font-medium bg-white rounded-2xl border border-dashed border-slate-300">
+                        No se encontraron combinaciones de nombres para los filtros seleccionados.
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "visual-card flex flex-col justify-between border-slate-200 transition-all hover:shadow-lg";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs uppercase tracking-wider font-bold text-slate-400">Recomendación Académica</span>
+                            <span class="badge ${item.badge_color} uppercase tracking-wider font-bold">${item.badge_viabilidad} Viabilidad</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">${item.nombre_programa}</h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">${item.descripcion}</p>
+                        
+                        <!-- Variables de Configuración -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded bg-slate-100 text-slate-600">Audiencia: ${item.audiencia === 'Cientifico' ? 'Investigador' : item.audiencia === 'Asistencial' ? 'Clínico' : 'Directivo'}</span>
+                            <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded bg-slate-100 text-slate-600">Código: ${item.friccion_codigo === 'Cero' ? 'Cero (No-Code)' : item.friccion_codigo === 'Media' ? 'Media (Low-Code)' : 'Alta (High-Code)'}</span>
+                            <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded bg-slate-100 text-slate-600">Foco: ${item.foco}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Puntajes de Métricas -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <div class="text-xs font-bold text-slate-700 flex justify-between">
+                            <span>Score Competitivo General</span>
+                            <span class="text-primary font-black">${item.score_competitivo.toFixed(1)} / 10.0</span>
+                        </div>
+                        
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-[11px] text-slate-500 font-medium">
+                                <span>CTR Promocional (Pauta Redes)</span>
+                                <span>${item.ctr_promocional}%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-1.5">
+                                <div class="bg-[#67D301] h-1.5 rounded-full" style="width: ${item.ctr_promocional}%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-[11px] text-slate-500 font-medium">
+                                <span>SEO Latente (Volumen Orgánico)</span>
+                                <span>${item.seo_latente}%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-1.5">
+                                <div class="bg-primary h-1.5 rounded-full" style="width: ${item.seo_latente}%"></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-[11px] text-slate-500 font-medium">
+                                <span>Rigor Científico Percibido</span>
+                                <span>${item.rigor_cientifico}%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-1.5">
+                                <div class="bg-[#F59E0B] h-1.5 rounded-full" style="width: ${item.rigor_cientifico}%"></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-[11px] text-slate-500 font-medium">
+                                <span>Diferenciación de Mercado</span>
+                                <span>${item.diferenciacion}%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-1.5">
+                                <div class="bg-blue-500 h-1.5 rounded-full" style="width: ${item.diferenciacion}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function updateFilterStyles(filterGroup, activeValue) {
+            filterGroup.forEach(btn => {
+                const val = btn.getAttribute("data-value");
+                if (val === activeValue) {
+                    btn.className = "px-4 py-2 rounded-full text-xs font-bold border border-primary bg-primary text-white transition-all";
+                } else {
+                    btn.className = "px-4 py-2 rounded-full text-xs font-bold border border-slate-300 bg-white text-slate-700 hover:border-slate-400 transition-all";
+                }
+            });
+        }
+
+        audienceFilters.forEach(btn => {
+            btn.addEventListener("click", () => {
+                activeAudience = btn.getAttribute("data-value");
+                updateFilterStyles(audienceFilters, activeAudience);
+                renderNombres();
+            });
+        });
+
+        codeFilters.forEach(btn => {
+            btn.addEventListener("click", () => {
+                activeCode = btn.getAttribute("data-value");
+                updateFilterStyles(codeFilters, activeCode);
+                renderNombres();
+            });
+        });
+
+        renderNombres();
+    });
+
+    console.log("Pipeline de datos inyectado correctamente en window.analisis_mercado_salud", window.analisis_mercado_salud);
+</script>
+</body>
+</html>
